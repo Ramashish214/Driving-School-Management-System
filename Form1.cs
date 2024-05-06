@@ -21,7 +21,7 @@ namespace driving_school_management_system
         {
             this.Hide();
             Main form = new Main();
-           form.Show();
+            form.Show();
         }
     }
 }

@@ -43,24 +43,27 @@
             this.licenseType = new System.Windows.Forms.ComboBox();
             this.bloodType = new System.Windows.Forms.ComboBox();
             this.deleteBtn = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDriver)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewDriver
             // 
             this.dataGridViewDriver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDriver.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewDriver.Location = new System.Drawing.Point(16, 15);
+            this.dataGridViewDriver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewDriver.Name = "dataGridViewDriver";
             this.dataGridViewDriver.RowHeadersWidth = 51;
-            this.dataGridViewDriver.Size = new System.Drawing.Size(776, 259);
+            this.dataGridViewDriver.Size = new System.Drawing.Size(1035, 319);
             this.dataGridViewDriver.TabIndex = 0;
             this.dataGridViewDriver.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // AddBtn
             // 
-            this.AddBtn.Location = new System.Drawing.Point(325, 382);
+            this.AddBtn.Location = new System.Drawing.Point(433, 470);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddBtn.Size = new System.Drawing.Size(100, 28);
             this.AddBtn.TabIndex = 1;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
@@ -68,84 +71,94 @@
             // 
             // driverId
             // 
-            this.driverId.Location = new System.Drawing.Point(157, 297);
+            this.driverId.Location = new System.Drawing.Point(209, 366);
+            this.driverId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.driverId.Name = "driverId";
-            this.driverId.Size = new System.Drawing.Size(121, 20);
+            this.driverId.Size = new System.Drawing.Size(160, 22);
             this.driverId.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 300);
+            this.label1.Location = new System.Drawing.Point(73, 369);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.Size = new System.Drawing.Size(18, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Id";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 332);
+            this.label2.Location = new System.Drawing.Point(73, 409);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 362);
+            this.label3.Location = new System.Drawing.Point(73, 446);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.Size = new System.Drawing.Size(75, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "License No";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 392);
+            this.label4.Location = new System.Drawing.Point(73, 482);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.Size = new System.Drawing.Size(89, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "License Type";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(55, 419);
+            this.label5.Location = new System.Drawing.Point(73, 516);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(78, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "Blood Type";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(55, 445);
+            this.label6.Location = new System.Drawing.Point(73, 548);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.Size = new System.Drawing.Size(109, 16);
             this.label6.TabIndex = 8;
             this.label6.Text = "Vehicle InCharge";
             // 
             // driverName
             // 
-            this.driverName.Location = new System.Drawing.Point(157, 329);
+            this.driverName.Location = new System.Drawing.Point(209, 405);
+            this.driverName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.driverName.Name = "driverName";
-            this.driverName.Size = new System.Drawing.Size(121, 20);
+            this.driverName.Size = new System.Drawing.Size(160, 22);
             this.driverName.TabIndex = 9;
             // 
             // licenseNo
             // 
-            this.licenseNo.Location = new System.Drawing.Point(157, 359);
+            this.licenseNo.Location = new System.Drawing.Point(209, 442);
+            this.licenseNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.licenseNo.Name = "licenseNo";
-            this.licenseNo.Size = new System.Drawing.Size(121, 20);
+            this.licenseNo.Size = new System.Drawing.Size(160, 22);
             this.licenseNo.TabIndex = 10;
             // 
             // vehicleInCharge
             // 
-            this.vehicleInCharge.Location = new System.Drawing.Point(157, 445);
+            this.vehicleInCharge.Location = new System.Drawing.Point(583, 548);
+            this.vehicleInCharge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.vehicleInCharge.Name = "vehicleInCharge";
-            this.vehicleInCharge.Size = new System.Drawing.Size(121, 20);
+            this.vehicleInCharge.Size = new System.Drawing.Size(160, 22);
             this.vehicleInCharge.TabIndex = 11;
             // 
             // licenseType
@@ -154,9 +167,10 @@
             this.licenseType.Items.AddRange(new object[] {
             "Light Vehicles",
             "Heavy Vehicles"});
-            this.licenseType.Location = new System.Drawing.Point(157, 385);
+            this.licenseType.Location = new System.Drawing.Point(209, 474);
+            this.licenseType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.licenseType.Name = "licenseType";
-            this.licenseType.Size = new System.Drawing.Size(121, 21);
+            this.licenseType.Size = new System.Drawing.Size(160, 24);
             this.licenseType.TabIndex = 12;
             // 
             // bloodType
@@ -170,26 +184,38 @@
             "O-",
             "B",
             "B+"});
-            this.bloodType.Location = new System.Drawing.Point(157, 411);
+            this.bloodType.Location = new System.Drawing.Point(209, 506);
+            this.bloodType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bloodType.Name = "bloodType";
-            this.bloodType.Size = new System.Drawing.Size(121, 21);
+            this.bloodType.Size = new System.Drawing.Size(160, 24);
             this.bloodType.TabIndex = 13;
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(437, 382);
+            this.deleteBtn.Location = new System.Drawing.Point(583, 470);
+            this.deleteBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteBtn.Size = new System.Drawing.Size(100, 28);
             this.deleteBtn.TabIndex = 14;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(209, 545);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(160, 24);
+            this.comboBox1.TabIndex = 15;
+            // 
             // Drivers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 475);
+            this.ClientSize = new System.Drawing.Size(1072, 585);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.bloodType);
             this.Controls.Add(this.licenseType);
@@ -205,6 +231,7 @@
             this.Controls.Add(this.driverId);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.dataGridViewDriver);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Drivers";
             this.Text = "Drivers";
             this.Load += new System.EventHandler(this.Drivers_Load);
@@ -231,5 +258,6 @@
         private System.Windows.Forms.ComboBox licenseType;
         private System.Windows.Forms.ComboBox bloodType;
         private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

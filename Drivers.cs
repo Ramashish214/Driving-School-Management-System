@@ -30,6 +30,28 @@ namespace driving_school_management_system
             dataGridViewDriver.DataSource = dt;
         }
 
+        private void LoadVehicleNos()
+        {
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("SELECT [Vehicle No] FROM Vehicle", connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBox1.Items.Add(reader["Vehicle No"].ToString());
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading driver IDs: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -39,6 +61,7 @@ namespace driving_school_management_system
         private void Drivers_Load(object sender, EventArgs e)
         {
             BindData();
+            LoadVehicleNos();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
@@ -68,7 +91,7 @@ namespace driving_school_management_system
                 insertCmd.Parameters.AddWithValue("@Value3", int.Parse(licenseNo.Text));
                 insertCmd.Parameters.AddWithValue("@Value4", licenseType.Text);
                 insertCmd.Parameters.AddWithValue("@Value5", bloodType.Text);
-                insertCmd.Parameters.AddWithValue("@Value6", vehicleInCharge.Text);
+                insertCmd.Parameters.AddWithValue("@Value6", comboBox1.Text);
                 insertCmd.ExecuteNonQuery();
                 MessageBox.Show("Inserted");
                 BindData();

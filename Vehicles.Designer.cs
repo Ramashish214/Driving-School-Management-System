@@ -52,7 +52,7 @@
             this.dataGridViewVehicles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewVehicles.Name = "dataGridViewVehicles";
             this.dataGridViewVehicles.RowHeadersWidth = 51;
-            this.dataGridViewVehicles.Size = new System.Drawing.Size(996, 277);
+            this.dataGridViewVehicles.Size = new System.Drawing.Size(1050, 280);
             this.dataGridViewVehicles.TabIndex = 0;
             // 
             // label1

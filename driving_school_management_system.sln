@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "driving_school_management_system", "driving_school_management_system.csproj", "{F7E0F445-7092-4692-9849-5BA51A0579F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7E0F445-7092-4692-9849-5BA51A0579F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7E0F445-7092-4692-9849-5BA51A0579F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7E0F445-7092-4692-9849-5BA51A0579F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7E0F445-7092-4692-9849-5BA51A0579F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E90C7E3B-EF80-4F28-9DA5-A0F1E7978014}
+	EndGlobalSection
+EndGlobal

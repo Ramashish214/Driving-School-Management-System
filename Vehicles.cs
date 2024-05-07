@@ -54,10 +54,37 @@ namespace driving_school_management_system
             }
         }
 
+        private void FindClosestDate()
+        {
+            int dateColumnIndex = dataGridViewVehicles.Columns.Cast<DataGridViewColumn>()
+                                    .FirstOrDefault(column => column.HeaderText == "Next Service Date") // Replace "DateColumnName" with your actual column header text
+                                    ?.Index ?? -1;
+
+            if (dateColumnIndex != -1)
+            {
+                // Extract all dates from the DataGridView
+                var dates = dataGridViewVehicles.Rows.Cast<DataGridViewRow>()
+                                .Where(row => row.Cells[dateColumnIndex].Value != null && row.Cells[dateColumnIndex].Value != DBNull.Value)
+                                .Select(row => Convert.ToDateTime(row.Cells[dateColumnIndex].Value));
+
+                // Find the closest date to the current date
+                DateTime closestDate = dates.OrderBy(date => Math.Abs((date - DateTime.Now).TotalDays)).First();
+
+                // Display the closest date in the label
+                label7.Text = closestDate.ToString("yyyy-MM-dd"); // Adjust the format as needed
+            }
+            else
+            {
+                // Handle if the date column is not found
+                label7.Text = "No Date Column Found";
+            }
+        }
+
         private void Vehicles_Load(object sender, EventArgs e)
         {
             BindData();
             LoadDriverIDs();
+            FindClosestDate();
             //
             //
         }

@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.studentsCountLabel = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -100,11 +101,21 @@
             this.studentsCountLabel.TabIndex = 7;
             this.studentsCountLabel.Text = "students";
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(721, 296);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(204, 168);
+            this.listView1.TabIndex = 8;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 555);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.studentsCountLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -130,5 +141,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label studentsCountLabel;
+        private System.Windows.Forms.ListView listView1;
     }
 }

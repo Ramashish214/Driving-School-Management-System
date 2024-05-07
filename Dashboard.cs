@@ -55,6 +55,44 @@ namespace driving_school_management_system
         private void Dashboard_Load(object sender, EventArgs e)
         {
             UpdateCounts();
+            LoadTomorrowsEventsToListView();
         }
+
+        private void LoadTomorrowsEventsToListView()
+        {
+            // Get tomorrow's date
+            DateTime tomorrow = DateTime.Today.AddDays(1);
+
+            // Fetch events for tomorrow
+            List<string> events = GetEventsForDate(tomorrow);
+
+            // Display events in ListView
+            listView1.Items.Clear();
+            foreach (string ev in events)
+            {
+                listView1.Items.Add(ev);
+            }
+        }
+        public List<string> GetEventsForDate(DateTime selectedDate)
+        {
+            List<string> events = new List<string>();
+
+
+
+            SqlCommand checkCmd = new SqlCommand("SELECT Details FROM Schedule WHERE Date = @SelectedDate", connection);
+            checkCmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
+
+            connection.Open();
+            SqlDataReader reader = checkCmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                events.Add(reader["Details"].ToString());
+            }
+
+            connection.Close();
+            return events;
+        }
+
     }
 }

@@ -313,7 +313,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1266, 603);
+            this.ClientSize = new System.Drawing.Size(1276, 500);
             this.Controls.Add(this.updateMRPDFBtn);
             this.Controls.Add(this.updateBCPDFBtn);
             this.Controls.Add(this.textBox6);

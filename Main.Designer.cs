@@ -29,20 +29,24 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.DashboardBtn = new System.Windows.Forms.Button();
-            this.DriversBtn = new System.Windows.Forms.Button();
-            this.LearnersBtn = new System.Windows.Forms.Button();
-            this.VehiclesBtn = new System.Windows.Forms.Button();
-            this.ScheduleBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ScheduleBtn = new System.Windows.Forms.Button();
+            this.VehiclesBtn = new System.Windows.Forms.Button();
+            this.LearnersBtn = new System.Windows.Forms.Button();
+            this.DriversBtn = new System.Windows.Forms.Button();
+            this.DashboardBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
+            this.black = new System.Windows.Forms.Button();
+            this.white = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.white);
+            this.panel1.Controls.Add(this.black);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.ScheduleBtn);
             this.panel1.Controls.Add(this.VehiclesBtn);
@@ -51,74 +55,82 @@
             this.panel1.Controls.Add(this.DashboardBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(212, 450);
+            this.panel1.Size = new System.Drawing.Size(283, 554);
             this.panel1.TabIndex = 0;
-            // 
-            // DashboardBtn
-            // 
-            this.DashboardBtn.Location = new System.Drawing.Point(3, 125);
-            this.DashboardBtn.Name = "DashboardBtn";
-            this.DashboardBtn.Size = new System.Drawing.Size(206, 44);
-            this.DashboardBtn.TabIndex = 0;
-            this.DashboardBtn.Text = "Dashboard";
-            this.DashboardBtn.UseVisualStyleBackColor = true;
-            this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
-            // 
-            // DriversBtn
-            // 
-            this.DriversBtn.Location = new System.Drawing.Point(3, 175);
-            this.DriversBtn.Name = "DriversBtn";
-            this.DriversBtn.Size = new System.Drawing.Size(206, 44);
-            this.DriversBtn.TabIndex = 1;
-            this.DriversBtn.Text = "Drivers";
-            this.DriversBtn.UseVisualStyleBackColor = true;
-            this.DriversBtn.Click += new System.EventHandler(this.DriversBtn_Click);
-            // 
-            // LearnersBtn
-            // 
-            this.LearnersBtn.Location = new System.Drawing.Point(3, 225);
-            this.LearnersBtn.Name = "LearnersBtn";
-            this.LearnersBtn.Size = new System.Drawing.Size(206, 44);
-            this.LearnersBtn.TabIndex = 2;
-            this.LearnersBtn.Text = "Learners";
-            this.LearnersBtn.UseVisualStyleBackColor = true;
-            this.LearnersBtn.Click += new System.EventHandler(this.LearnersBtn_Click);
-            // 
-            // VehiclesBtn
-            // 
-            this.VehiclesBtn.Location = new System.Drawing.Point(3, 275);
-            this.VehiclesBtn.Name = "VehiclesBtn";
-            this.VehiclesBtn.Size = new System.Drawing.Size(206, 44);
-            this.VehiclesBtn.TabIndex = 3;
-            this.VehiclesBtn.Text = "Vehicles";
-            this.VehiclesBtn.UseVisualStyleBackColor = true;
-            this.VehiclesBtn.Click += new System.EventHandler(this.VehiclesBtn_Click);
-            // 
-            // ScheduleBtn
-            // 
-            this.ScheduleBtn.Location = new System.Drawing.Point(3, 325);
-            this.ScheduleBtn.Name = "ScheduleBtn";
-            this.ScheduleBtn.Size = new System.Drawing.Size(206, 44);
-            this.ScheduleBtn.TabIndex = 4;
-            this.ScheduleBtn.Text = "Schedule";
-            this.ScheduleBtn.UseVisualStyleBackColor = true;
-            this.ScheduleBtn.Click += new System.EventHandler(this.ScheduleBtn_Click);
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(212, 116);
+            this.panel2.Size = new System.Drawing.Size(283, 143);
             this.panel2.TabIndex = 5;
+            // 
+            // ScheduleBtn
+            // 
+            this.ScheduleBtn.Location = new System.Drawing.Point(4, 400);
+            this.ScheduleBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ScheduleBtn.Name = "ScheduleBtn";
+            this.ScheduleBtn.Size = new System.Drawing.Size(275, 54);
+            this.ScheduleBtn.TabIndex = 4;
+            this.ScheduleBtn.Text = "Schedule";
+            this.ScheduleBtn.UseVisualStyleBackColor = true;
+            this.ScheduleBtn.Click += new System.EventHandler(this.ScheduleBtn_Click);
+            // 
+            // VehiclesBtn
+            // 
+            this.VehiclesBtn.Location = new System.Drawing.Point(4, 338);
+            this.VehiclesBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VehiclesBtn.Name = "VehiclesBtn";
+            this.VehiclesBtn.Size = new System.Drawing.Size(275, 54);
+            this.VehiclesBtn.TabIndex = 3;
+            this.VehiclesBtn.Text = "Vehicles";
+            this.VehiclesBtn.UseVisualStyleBackColor = true;
+            this.VehiclesBtn.Click += new System.EventHandler(this.VehiclesBtn_Click);
+            // 
+            // LearnersBtn
+            // 
+            this.LearnersBtn.Location = new System.Drawing.Point(4, 277);
+            this.LearnersBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LearnersBtn.Name = "LearnersBtn";
+            this.LearnersBtn.Size = new System.Drawing.Size(275, 54);
+            this.LearnersBtn.TabIndex = 2;
+            this.LearnersBtn.Text = "Learners";
+            this.LearnersBtn.UseVisualStyleBackColor = true;
+            this.LearnersBtn.Click += new System.EventHandler(this.LearnersBtn_Click);
+            // 
+            // DriversBtn
+            // 
+            this.DriversBtn.Location = new System.Drawing.Point(4, 215);
+            this.DriversBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DriversBtn.Name = "DriversBtn";
+            this.DriversBtn.Size = new System.Drawing.Size(275, 54);
+            this.DriversBtn.TabIndex = 1;
+            this.DriversBtn.Text = "Drivers";
+            this.DriversBtn.UseVisualStyleBackColor = true;
+            this.DriversBtn.Click += new System.EventHandler(this.DriversBtn_Click);
+            // 
+            // DashboardBtn
+            // 
+            this.DashboardBtn.Location = new System.Drawing.Point(4, 154);
+            this.DashboardBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DashboardBtn.Name = "DashboardBtn";
+            this.DashboardBtn.Size = new System.Drawing.Size(275, 54);
+            this.DashboardBtn.TabIndex = 0;
+            this.DashboardBtn.Text = "Dashboard";
+            this.DashboardBtn.UseVisualStyleBackColor = true;
+            this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(287, 225);
+            this.label1.Location = new System.Drawing.Point(383, 277);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
@@ -126,18 +138,40 @@
             // 
             this.panelRight.Controls.Add(this.label1);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRight.Location = new System.Drawing.Point(212, 0);
+            this.panelRight.Location = new System.Drawing.Point(283, 0);
+            this.panelRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(704, 450);
+            this.panelRight.Size = new System.Drawing.Size(938, 554);
             this.panelRight.TabIndex = 2;
+            // 
+            // black
+            // 
+            this.black.Location = new System.Drawing.Point(42, 505);
+            this.black.Name = "black";
+            this.black.Size = new System.Drawing.Size(75, 23);
+            this.black.TabIndex = 6;
+            this.black.Text = "black";
+            this.black.UseVisualStyleBackColor = true;
+            this.black.Click += new System.EventHandler(this.black_Click);
+            // 
+            // white
+            // 
+            this.white.Location = new System.Drawing.Point(153, 505);
+            this.white.Name = "white";
+            this.white.Size = new System.Drawing.Size(75, 23);
+            this.white.TabIndex = 7;
+            this.white.Text = "white";
+            this.white.UseVisualStyleBackColor = true;
+            this.white.Click += new System.EventHandler(this.white_Click);
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 450);
+            this.ClientSize = new System.Drawing.Size(1221, 554);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "L Tracker Plus";
@@ -160,5 +194,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelRight;
+        private System.Windows.Forms.Button white;
+        private System.Windows.Forms.Button black;
     }
 }

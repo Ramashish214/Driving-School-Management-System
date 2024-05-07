@@ -27,6 +27,8 @@ namespace driving_school_management_system
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dataGridViewVehicles.DataSource = dt;
+            //dataGridViewVehicles.ClearSelection();
+            //dataGridViewVehicles.CurrentCell = null;
         }
 
         private void LoadDriverIDs()
@@ -56,6 +58,8 @@ namespace driving_school_management_system
         {
             BindData();
             LoadDriverIDs();
+            //
+            //
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -100,6 +104,26 @@ namespace driving_school_management_system
                 connection.Close();
             }
             BindData();
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            string searchText = textBox1.Text.Trim();
+            dataGridViewVehicles.ClearSelection();
+            // Iterate through each row in the DataGridView
+            foreach (DataGridViewRow row in dataGridViewVehicles.Rows)
+            {
+                // Assuming the unique identifier is in the first column, adjust column index if necessary
+                string cellValue = row.Cells[0].Value.ToString();
+
+                // If the cell value matches the search text, select the row and exit the loop
+                if (cellValue.Equals(searchText, StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Selected = true;
+                    dataGridViewVehicles.FirstDisplayedScrollingRowIndex = row.Index; // Scroll to the selected row
+                    break;
+                }
+            }
         }
     }   
 }

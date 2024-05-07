@@ -42,6 +42,8 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.addBtn = new System.Windows.Forms.Button();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             // 
             this.dataGridViewVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVehicles.Location = new System.Drawing.Point(35, 21);
-            this.dataGridViewVehicles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewVehicles.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewVehicles.Name = "dataGridViewVehicles";
             this.dataGridViewVehicles.RowHeadersWidth = 51;
             this.dataGridViewVehicles.Size = new System.Drawing.Size(1050, 280);
@@ -68,7 +70,7 @@
             // vehicleNo
             // 
             this.vehicleNo.Location = new System.Drawing.Point(273, 342);
-            this.vehicleNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.vehicleNo.Margin = new System.Windows.Forms.Padding(4);
             this.vehicleNo.Name = "vehicleNo";
             this.vehicleNo.Size = new System.Drawing.Size(160, 22);
             this.vehicleNo.TabIndex = 2;
@@ -130,7 +132,7 @@
             "Car",
             "Van"});
             this.comboBox1.Location = new System.Drawing.Point(273, 379);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 9;
@@ -138,7 +140,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(279, 425);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker1.TabIndex = 10;
@@ -146,7 +148,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(279, 459);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker2.TabIndex = 11;
@@ -154,7 +156,7 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.Location = new System.Drawing.Point(279, 527);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker3.TabIndex = 12;
@@ -163,7 +165,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(279, 491);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(215, 24);
             this.comboBox2.TabIndex = 13;
@@ -171,7 +173,7 @@
             // addBtn
             // 
             this.addBtn.Location = new System.Drawing.Point(749, 410);
-            this.addBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(100, 28);
             this.addBtn.TabIndex = 14;
@@ -179,11 +181,30 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(991, 501);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(75, 23);
+            this.searchBtn.TabIndex = 15;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(846, 499);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 16;
+            // 
             // Vehicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 591);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.dateTimePicker3);
@@ -198,7 +219,7 @@
             this.Controls.Add(this.vehicleNo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewVehicles);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Vehicles";
             this.Text = "Vehicles";
             this.Load += new System.EventHandler(this.Vehicles_Load);
@@ -224,5 +245,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

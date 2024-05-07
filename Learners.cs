@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace driving_school_management_system
 {
@@ -202,8 +203,48 @@ namespace driving_school_management_system
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            connection.Open();
+
+            // Check if the primary key already exists
+            SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Learner WHERE [Id] = @PrimaryKeyValue", connection);
+            checkCmd.Parameters.AddWithValue("@PrimaryKeyValue", textBox1.Text);
+
+            int existingCount = (int)checkCmd.ExecuteScalar();
+            if (existingCount > 0)
+            {
+                MessageBox.Show("Primary key already exists. Please enter a different value.");
+                connection.Close();
+                return; // Exit the event handler
+            }
+
+            // Proceed with insertion if the primary key does not exist
+
+
+            try
+            {
+                SqlCommand insertCmd = new SqlCommand("INSERT INTO Learner (Id, Name, [License Type], Address,[Written Exam]) VALUES (@Value1, @Value2, @Value3, @Value4, @Value5)", connection);
+                insertCmd.Parameters.AddWithValue("@Value1", textBox1.Text);
+                insertCmd.Parameters.AddWithValue("@Value2", textBox2.Text);
+                insertCmd.Parameters.AddWithValue("@Value3", comboBox1.Text);
+                insertCmd.Parameters.AddWithValue("@Value4", textBox7.Text);
+                insertCmd.Parameters.AddWithValue("@Value5", comboBox2.Text);
+                insertCmd.ExecuteNonQuery();
+                MessageBox.Show("Inserted");
+                BindData();
+            }
+            catch (SqlException ex)
+            {
+                // Handle SQL exceptions
+                MessageBox.Show("An error occurred while inserting data: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            //BindData();
+
             // Check if both ID and PDF file are provided
-            if (!string.IsNullOrEmpty(textBox1.Text)) // && !string.IsNullOrEmpty(textBox2.Text))
+            /*if (!string.IsNullOrEmpty(textBox1.Text)) // && !string.IsNullOrEmpty(textBox2.Text))
             {
                 // Read PDF file bytes
                 byte[] fileBytes = File.ReadAllBytes(textBox3.Text);
@@ -218,8 +259,8 @@ namespace driving_school_management_system
                 //MessageBox.Show("Please provide both ID and PDF file path.");
                 //byte[] fileBytes = File.ReadAllBytes(null);
                 //byte[] fileBytes1 = File.ReadAllBytes(null);
-                InsertPDF(textBox1.Text, null, null,null);
-            }
+                InsertPDF(textBox1.Text, null, null, null);
+            }*/
         }
 
         private void dataGridViewLearners_CellContentClick(object sender, DataGridViewCellEventArgs e)

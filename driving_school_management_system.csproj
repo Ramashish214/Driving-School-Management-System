@@ -131,6 +131,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Schedule.resx">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vehicles.resx">
       <DependentUpon>Vehicles.cs</DependentUpon>
     </EmbeddedResource>

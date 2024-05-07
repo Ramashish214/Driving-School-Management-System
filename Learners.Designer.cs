@@ -53,6 +53,11 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.updateIdPDFBtn = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.updateBCPDFBtn = new System.Windows.Forms.Button();
+            this.updateMRPDFBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLearners)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +83,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(324, 409);
+            this.button1.Location = new System.Drawing.Point(944, 334);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -114,7 +119,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 409);
+            this.label4.Location = new System.Drawing.Point(679, 334);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 16);
             this.label4.TabIndex = 6;
@@ -123,7 +128,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(59, 441);
+            this.label5.Location = new System.Drawing.Point(679, 366);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 16);
             this.label5.TabIndex = 7;
@@ -132,7 +137,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(59, 475);
+            this.label6.Location = new System.Drawing.Point(679, 400);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 16);
             this.label6.TabIndex = 8;
@@ -141,7 +146,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(59, 506);
+            this.label7.Location = new System.Drawing.Point(59, 445);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 16);
             this.label7.TabIndex = 9;
@@ -160,28 +165,28 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(180, 406);
+            this.textBox3.Location = new System.Drawing.Point(800, 331);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(121, 22);
             this.textBox3.TabIndex = 12;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(180, 438);
+            this.textBox4.Location = new System.Drawing.Point(800, 363);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(121, 22);
             this.textBox4.TabIndex = 13;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(180, 469);
+            this.textBox5.Location = new System.Drawing.Point(800, 394);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(121, 22);
             this.textBox5.TabIndex = 14;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(324, 441);
+            this.button2.Location = new System.Drawing.Point(944, 366);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 16;
@@ -191,7 +196,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(324, 475);
+            this.button3.Location = new System.Drawing.Point(944, 400);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 17;
@@ -201,7 +206,7 @@
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(533, 438);
+            this.addBtn.Location = new System.Drawing.Point(343, 442);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
             this.addBtn.TabIndex = 19;
@@ -228,7 +233,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(611, 293);
+            this.label8.Location = new System.Drawing.Point(59, 408);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 16);
             this.label8.TabIndex = 20;
@@ -243,7 +248,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(689, 290);
+            this.textBox7.Location = new System.Drawing.Point(180, 406);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(121, 22);
             this.textBox7.TabIndex = 21;
@@ -255,16 +260,65 @@
             "Not Written",
             "Pass",
             "Fail"});
-            this.comboBox2.Location = new System.Drawing.Point(180, 506);
+            this.comboBox2.Location = new System.Drawing.Point(180, 442);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 22;
+            // 
+            // updateIdPDFBtn
+            // 
+            this.updateIdPDFBtn.Location = new System.Drawing.Point(1043, 334);
+            this.updateIdPDFBtn.Name = "updateIdPDFBtn";
+            this.updateIdPDFBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateIdPDFBtn.TabIndex = 23;
+            this.updateIdPDFBtn.Text = "button4";
+            this.updateIdPDFBtn.UseVisualStyleBackColor = true;
+            this.updateIdPDFBtn.Click += new System.EventHandler(this.updateIdPDFBtn_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(679, 297);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(18, 16);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Id";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(800, 294);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(121, 22);
+            this.textBox6.TabIndex = 25;
+            // 
+            // updateBCPDFBtn
+            // 
+            this.updateBCPDFBtn.Location = new System.Drawing.Point(1043, 371);
+            this.updateBCPDFBtn.Name = "updateBCPDFBtn";
+            this.updateBCPDFBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateBCPDFBtn.TabIndex = 26;
+            this.updateBCPDFBtn.Text = "button4";
+            this.updateBCPDFBtn.UseVisualStyleBackColor = true;
+            // 
+            // updateMRPDFBtn
+            // 
+            this.updateMRPDFBtn.Location = new System.Drawing.Point(1043, 400);
+            this.updateMRPDFBtn.Name = "updateMRPDFBtn";
+            this.updateMRPDFBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateMRPDFBtn.TabIndex = 27;
+            this.updateMRPDFBtn.Text = "button4";
+            this.updateMRPDFBtn.UseVisualStyleBackColor = true;
             // 
             // Learners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1266, 603);
+            this.Controls.Add(this.updateMRPDFBtn);
+            this.Controls.Add(this.updateBCPDFBtn);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.updateIdPDFBtn);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
@@ -322,5 +376,10 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button updateIdPDFBtn;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button updateBCPDFBtn;
+        private System.Windows.Forms.Button updateMRPDFBtn;
     }
 }

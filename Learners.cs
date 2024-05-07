@@ -41,7 +41,7 @@ namespace driving_school_management_system
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT {columnName} FROM Learner WHERE Id = @Id", connection);
+                SqlCommand cmd = new SqlCommand($"SELECT [{columnName}] FROM Learner WHERE Id = @Id", connection);
                 cmd.Parameters.AddWithValue("@Id", id);
                 object result = cmd.ExecuteScalar();
                 if (result != DBNull.Value)
@@ -150,7 +150,7 @@ namespace driving_school_management_system
             BindData();
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
             buttonColumn.HeaderText = "National ID";
-            buttonColumn.Name = "pdfFile";
+            buttonColumn.Name = "National ID";
             buttonColumn.Text = "View";
             buttonColumn.UseColumnTextForButtonValue = true;
             dataGridViewLearners.Columns.Add(buttonColumn);
@@ -265,7 +265,7 @@ namespace driving_school_management_system
 
         private void dataGridViewLearners_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ((e.ColumnIndex == dataGridViewLearners.Columns["pdfFile"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile1"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile2"].Index && e.RowIndex  >= 0))
+            if ((e.ColumnIndex == dataGridViewLearners.Columns["National ID"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile1"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile2"].Index && e.RowIndex  >= 0))
             {
                 // Get the ID from the clicked row
                 string id = dataGridViewLearners.Rows[e.RowIndex].Cells["Id"].Value.ToString();
@@ -275,6 +275,63 @@ namespace driving_school_management_system
 
                 // View the PDF document
                 ViewPDF(id, columnName);
+            }
+        }
+
+        private void updateIdPDFBtn_Click(object sender, EventArgs e)
+        {
+            // Check if both ID and PDF file are provided
+            if (!string.IsNullOrEmpty(textBox6.Text) && !string.IsNullOrEmpty(textBox3.Text))
+            {
+                // Read PDF file bytes
+                byte[] fileBytes = File.ReadAllBytes(textBox3.Text);
+                //byte[] fileBytes1 = File.ReadAllBytes(textBox4.Text);
+                //byte[] fileBytes2 = File.ReadAllBytes(textBox5.Text);
+                // Insert PDF file bytes into database
+                //InsertPDF(textBox1.Text, fileBytes, null, null);
+                //InsertPDF(textBox1.Text, fileBytes1);
+                UpdateRecord(textBox6.Text, fileBytes, "National ID");
+            }
+            else
+            {
+                MessageBox.Show("Please provide both ID and PDF file path.");
+                //byte[] fileBytes = File.ReadAllBytes(null);
+                //byte[] fileBytes1 = File.ReadAllBytes(null);
+                //InsertPDF(textBox1.Text, null, null, null);
+            }
+        }
+
+        private void UpdateRecord(string id, byte[] fileBytes,string name)
+        {
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand($"UPDATE Learner SET [{name}] = @FileBytes WHERE Id = @Id", connection);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                // Check if fileBytes is null and add DBNull.Value if it is
+                if (fileBytes == null)
+                {
+                    cmd.Parameters.Add("@FileBytes", SqlDbType.VarBinary, -1).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@FileBytes", SqlDbType.VarBinary, -1).Value = fileBytes;
+                }
+
+               
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Record updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating record: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+                BindData(); // Refresh DataGridView
             }
         }
     }

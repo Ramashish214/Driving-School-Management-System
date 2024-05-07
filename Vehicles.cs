@@ -152,5 +152,61 @@ namespace driving_school_management_system
                 }
             }
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            // Check if the driverId TextBox is not empty
+            if (!string.IsNullOrEmpty(vehicleNo.Text))
+            {
+                // Confirm with the user
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand("DELETE FROM Vehicle WHERE [Vehicle No] = @ID", connection);
+                        cmd.Parameters.AddWithValue("@ID", vehicleNo.Text);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Deleted");
+                        BindData();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("Error deleting record: " + ex.Message);
+                    }
+                }
+                // If user clicks No, do nothing
+            }
+            else
+            {
+                MessageBox.Show("Please enter an ID to delete.");
+            }
+        }
+
+        private void dataGridViewVehicles_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewVehicles.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridViewVehicles.SelectedRows[0];
+
+                // Assuming txtBox1, txtBox2, txtBox3 are your TextBox controls
+                vehicleNo.Text = selectedRow.Cells["Vehicle No"].Value.ToString();
+                comboBox1.Text = selectedRow.Cells["Vehicle Type"].Value.ToString();
+                dateTimePicker1.Text = selectedRow.Cells["Last Service Date"].Value.ToString();
+                dateTimePicker2.Text = selectedRow.Cells["Next Service Date"].Value.ToString();
+                comboBox2.Text = selectedRow.Cells["Driver Incharge"].Value.ToString();
+                dateTimePicker3.Text = selectedRow.Cells["License Renewval Date"].Value.ToString();
+                //textBox1.Text = selectedRow.Cells["Contact No"].Value.ToString();
+                // Add more lines if you have more text boxes and columns
+            }
+        }
     }   
 }

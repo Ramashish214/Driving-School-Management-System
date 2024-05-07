@@ -45,6 +45,8 @@
             this.searchBtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.updateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +59,7 @@
             this.dataGridViewVehicles.RowHeadersWidth = 51;
             this.dataGridViewVehicles.Size = new System.Drawing.Size(1050, 280);
             this.dataGridViewVehicles.TabIndex = 0;
+            this.dataGridViewVehicles.SelectionChanged += new System.EventHandler(this.dataGridViewVehicles_SelectionChanged);
             // 
             // label1
             // 
@@ -173,7 +176,7 @@
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(749, 410);
+            this.addBtn.Location = new System.Drawing.Point(662, 375);
             this.addBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(100, 28);
@@ -184,7 +187,7 @@
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(991, 501);
+            this.searchBtn.Location = new System.Drawing.Point(807, 461);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(75, 23);
             this.searchBtn.TabIndex = 15;
@@ -194,7 +197,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(846, 499);
+            this.textBox1.Location = new System.Drawing.Point(662, 459);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 16;
@@ -202,17 +205,41 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1009, 353);
+            this.label7.Location = new System.Drawing.Point(1027, 327);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 16);
             this.label7.TabIndex = 17;
             this.label7.Text = "label7";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Location = new System.Drawing.Point(793, 375);
+            this.deleteBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(100, 28);
+            this.deleteBtn.TabIndex = 18;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.Location = new System.Drawing.Point(914, 373);
+            this.updateBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(100, 28);
+            this.updateBtn.TabIndex = 19;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.UseVisualStyleBackColor = true;
             // 
             // Vehicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 591);
+            this.Controls.Add(this.updateBtn);
+            this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.searchBtn);
@@ -259,5 +286,7 @@
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button updateBtn;
     }
 }

@@ -86,14 +86,14 @@ namespace driving_school_management_system
 
         private void black_Click(object sender, EventArgs e)
         {
-            SetBlackTheme();
+            //SetBlackTheme();
         }
 
         private void white_Click(object sender, EventArgs e)
         {
-            SetWhiteTheme();
+            //SetWhiteTheme();
         }
-
+        /*
         private Color _backgroundColor;
         private Color _foregroundColor;
 
@@ -142,7 +142,7 @@ namespace driving_school_management_system
                     ApplyTheme(control.Controls);
                 }
             }
-        }
+        }*/
 
     }
 }

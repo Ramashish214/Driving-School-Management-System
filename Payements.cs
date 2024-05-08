@@ -19,7 +19,7 @@ namespace driving_school_management_system
     {
 
         private string filePath = Path.Combine(Environment.CurrentDirectory, "E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\DrivingSchoolDetails.txt"); // Absolute path to the file to store the values
-
+        private string descriptionFilePath = "E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\ServiceDescription.txt";
 
         public Payements()
         {
@@ -118,7 +118,7 @@ namespace driving_school_management_system
             Brush brush = Brushes.Black;
             int startX = 50;
             int startY = 50;
-            int lineHeight = 20;
+            int lineHeight = 25;
             int rectanglePadding = 10; // Padding around the rectangles
 
             // Define labels and textboxes array
@@ -129,7 +129,9 @@ namespace driving_school_management_system
             string schoolName = textBox9.Text;
             string schoolAddress = textBox10.Text;
             string schoolContact = textBox11.Text;
-
+            string description = File.ReadAllText(descriptionFilePath);
+            description = description.Replace("🌟", "\u2605");
+            
             // Print driving school details at the top
             g.DrawString(schoolName, titleFont, brush, startX, startY);
             g.DrawString(schoolAddress, bodyFont, brush, startX, startY + lineHeight);
@@ -140,7 +142,7 @@ namespace driving_school_management_system
 
             // Draw rectangles for two columns
             int columnWidth = (e.MarginBounds.Right - startX) / 2 - 2 * rectanglePadding;
-            int rectangleHeight = labels.Length * 2 * lineHeight + 2 * rectanglePadding;
+            int rectangleHeight = 250;//labels.Length * 2 * lineHeight + 2 * rectanglePadding;
 
             Rectangle leftColumnRect = new Rectangle(startX, startY + 4 * lineHeight, columnWidth, rectangleHeight);
             Rectangle rightColumnRect = new Rectangle(startX + columnWidth + 2 * rectanglePadding, startY + 4 * lineHeight, columnWidth, rectangleHeight);
@@ -154,6 +156,8 @@ namespace driving_school_management_system
 
             // Print course details in the right column
             PrintSection("Training Details", labels.Skip(4).ToArray(), textBoxes.Skip(4).ToArray(), startX + columnWidth + 3 * rectanglePadding, startY + 4 * lineHeight + rectanglePadding, lineHeight, columnWidth);
+
+            g.DrawString(description, bodyFont, brush, startX, 450);
 
             // Set the PDF document size
             e.PageSettings.PaperSize = new PaperSize("Custom", e.MarginBounds.Right - startX, startY + rectangleHeight + 4 * lineHeight);

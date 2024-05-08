@@ -194,6 +194,7 @@
       <DependentUpon>dbSystemDSMS.mdf</DependentUpon>
     </Content>
     <Content Include="DrivingSchoolDetails.txt" />
+    <Content Include="ServiceDescription.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

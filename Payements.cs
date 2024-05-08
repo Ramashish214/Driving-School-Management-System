@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace driving_school_management_system
 {
@@ -19,7 +20,7 @@ namespace driving_school_management_system
         {
             InitializeComponent();
             printDocument1.PrintPage += printDocument1_PrintPage;
-            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A5", 583, 827);
+            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A6", 413, 583);
         }
 
         SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
@@ -86,15 +87,78 @@ namespace driving_school_management_system
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Graphics g = e.Graphics;
-            Font font = new Font("Arial", 12);
+            Font titleFont = new Font("Times New Roman", 14, FontStyle.Bold);
+            Font bodyFont = new Font("Times New Roman", 12);
             Brush brush = Brushes.Black;
+            int startX = 50;
+            int startY = 50;
+            int lineHeight = 20;
+            int rectanglePadding = 10; // Padding around the rectangles
 
-            // Example: Print textbox values with labels
-            string nameLabelText = label1.Text;
-            string nameValueText = textBox1.Text; // Assuming textBoxName is the textbox for name
-            string formattedText = $"{nameLabelText} {nameValueText}";
-            g.DrawString(formattedText, font, brush, 100, 100);
+            // Define labels and textboxes array
+            Label[] labels = { label1, label2, label3, label4, label5, label6, label7, label8 };
+            TextBox[] textBoxes = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8 };
 
+            // Driving school details
+            string schoolName = "My Driving School";
+            string schoolAddress = "123 Street, City, Country";
+            string schoolContact = "Phone: 123-456-7890";
+
+            // Print driving school details at the top
+            g.DrawString(schoolName, titleFont, brush, startX, startY);
+            g.DrawString(schoolAddress, bodyFont, brush, startX, startY + lineHeight);
+            g.DrawString(schoolContact, bodyFont, brush, startX, startY + 2 * lineHeight);
+
+            // Draw separator line
+            g.DrawLine(new Pen(Color.Black), startX, startY + 3 * lineHeight, e.MarginBounds.Right - startX, startY + 3 * lineHeight);
+
+            // Draw rectangles for two columns
+            int columnWidth = (e.MarginBounds.Right - startX) / 2 - 2 * rectanglePadding;
+            int rectangleHeight = labels.Length * 2 * lineHeight + 2 * rectanglePadding;
+
+            Rectangle leftColumnRect = new Rectangle(startX, startY + 4 * lineHeight, columnWidth, rectangleHeight);
+            Rectangle rightColumnRect = new Rectangle(startX + columnWidth + 2 * rectanglePadding, startY + 4 * lineHeight, columnWidth, rectangleHeight);
+
+            // Draw rectangles for two columns
+            g.DrawRectangle(Pens.Black, leftColumnRect);
+            g.DrawRectangle(Pens.Black, rightColumnRect);
+
+            // Print student details in the left column
+            PrintSection("Student Details", labels.Take(4).ToArray(), textBoxes.Take(4).ToArray(), startX + rectanglePadding, startY + 4 * lineHeight + rectanglePadding, lineHeight, columnWidth);
+
+            // Print course details in the right column
+            PrintSection("Training Details", labels.Skip(4).ToArray(), textBoxes.Skip(4).ToArray(), startX + columnWidth + 3 * rectanglePadding, startY + 4 * lineHeight + rectanglePadding, lineHeight, columnWidth);
+
+            // Set the PDF document size
+            e.PageSettings.PaperSize = new PaperSize("Custom", e.MarginBounds.Right - startX, startY + rectangleHeight + 4 * lineHeight);
+
+            // Print generated time and date at the bottom
+            string generatedDateTime = $"PDF Generated: {DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")} - L Tracker Plus";
+            SizeF generatedDateTimeSize = g.MeasureString(generatedDateTime, bodyFont);
+            g.DrawString(generatedDateTime, bodyFont, brush, startX, e.MarginBounds.Bottom - generatedDateTimeSize.Height);
+
+            // Helper method to print each section
+            void PrintSection(string sectionTitle, Label[] sectionLabels, TextBox[] sectionTextBoxes, int x, int y, int lineSpacing, int width)
+            {
+                g.DrawString(sectionTitle, titleFont, brush, x, y);
+                y += lineHeight;
+
+                for (int i = 0; i < sectionLabels.Length; i++)
+                {
+                    string labelText = sectionLabels[i].Text;
+                    string textBoxValue = sectionTextBoxes[i].Text;
+                    PrintDetail(g, labelText, textBoxValue, x + rectanglePadding, ref y, titleFont, bodyFont, brush, lineSpacing);
+                }
+            }
+
+            // Helper method to print each detail
+            void PrintDetail(Graphics graphics, string label, string value, int x, ref int y, Font labelFont, Font valueFont, Brush color, int lineSpacing)
+            {
+                graphics.DrawString(label, labelFont, color, x, y);
+                y += lineSpacing;
+                graphics.DrawString(value, valueFont, color, x, y);
+                y += lineSpacing;
+            }
         }
 
         private void printBtn_Click(object sender, EventArgs e)

@@ -132,7 +132,7 @@
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(383, 67);
+            this.searchBtn.Location = new System.Drawing.Point(349, 68);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(75, 23);
             this.searchBtn.TabIndex = 10;
@@ -190,7 +190,7 @@
             // 
             // calculateBtn
             // 
-            this.calculateBtn.Location = new System.Drawing.Point(383, 344);
+            this.calculateBtn.Location = new System.Drawing.Point(333, 340);
             this.calculateBtn.Name = "calculateBtn";
             this.calculateBtn.Size = new System.Drawing.Size(91, 23);
             this.calculateBtn.TabIndex = 17;
@@ -200,7 +200,7 @@
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(562, 343);
+            this.printBtn.Location = new System.Drawing.Point(211, 397);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(75, 23);
             this.printBtn.TabIndex = 18;

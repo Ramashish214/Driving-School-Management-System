@@ -447,5 +447,32 @@ namespace driving_school_management_system
                 }
             }
         }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            string searchText = textBox9.Text.Trim();
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                // Loop through each row in the DataGridView
+                foreach (DataGridViewRow row in dataGridViewLearners.Rows)
+                {
+                    // Check if the "Id" column value matches the search text
+                    if (row.Cells["Id"].Value != null && row.Cells["Id"].Value.ToString() == searchText)
+                    {
+                        // Select the row and scroll it into view
+                        row.Selected = true;
+                        dataGridViewLearners.CurrentCell = row.Cells["Id"];
+                        return; // Exit the function once a match is found
+                    }
+                }
+
+                MessageBox.Show("No matching record found.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a search value.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

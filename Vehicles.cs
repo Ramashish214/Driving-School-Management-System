@@ -135,6 +135,15 @@ namespace driving_school_management_system
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
+            // Check if the text box has a value
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                // Show a message or perform any action to notify the user
+                MessageBox.Show("Please enter a search term.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Exit the event handler
+            }
+
+            // Proceed with the search operation
             string searchText = textBox1.Text.Trim();
             dataGridViewVehicles.ClearSelection();
             // Iterate through each row in the DataGridView
@@ -206,6 +215,48 @@ namespace driving_school_management_system
                 dateTimePicker3.Text = selectedRow.Cells["License Renewval Date"].Value.ToString();
                 //textBox1.Text = selectedRow.Cells["Contact No"].Value.ToString();
                 // Add more lines if you have more text boxes and columns
+            }
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            try
+            {
+                // Check if the record exists
+                SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Vehicle WHERE [Vehicle No] = @PrimaryKeyValue", connection);
+                checkCmd.Parameters.AddWithValue("@PrimaryKeyValue", vehicleNo.Text);
+                int existingCount = (int)checkCmd.ExecuteScalar();
+
+                if (existingCount == 0)
+                {
+                    MessageBox.Show("Record does not exist. Please enter a valid ID.");
+                    connection.Close();
+                    return; // Exit the event handler
+                }
+
+                // Proceed with the update
+                SqlCommand updateCmd = new SqlCommand("UPDATE Vehicle SET  [Vehicle Type] = @Value2, [Last Service Date] = @Value3, [Next Service Date] = @Value4, [Driver Incharge] = @Value5, [License Renewval Date] = @Value6 WHERE [Vehicle No] = @PrimaryKeyValue", connection);
+                updateCmd.Parameters.AddWithValue("@PrimaryKeyValue", vehicleNo.Text);
+                updateCmd.Parameters.AddWithValue("@Value2", comboBox1.Text);
+                updateCmd.Parameters.AddWithValue("@Value3", dateTimePicker1.Value);
+                updateCmd.Parameters.AddWithValue("@Value4", dateTimePicker2.Value);
+                updateCmd.Parameters.AddWithValue("@Value5", comboBox2.Text);
+                updateCmd.Parameters.AddWithValue("@Value6", dateTimePicker3.Value);
+                //updateCmd.Parameters.AddWithValue("@Value7", textBox1.Text);
+                updateCmd.ExecuteNonQuery();
+
+                MessageBox.Show("Updated");
+                BindData();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("An error occurred while updating data: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }   

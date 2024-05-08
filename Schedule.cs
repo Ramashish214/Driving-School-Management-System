@@ -32,13 +32,38 @@ namespace driving_school_management_system
             try
             {
                 connection.Open();
-                SqlCommand insertCmd = new SqlCommand("INSERT INTO Schedule VALUES (@Value2, @Value3)", connection);
-                insertCmd.Parameters.AddWithValue("@Value2", monthCalendar1.SelectionStart);
-                insertCmd.Parameters.AddWithValue("@Value3", textBox1.Text);
 
-                insertCmd.ExecuteNonQuery();
-                MessageBox.Show("Inserted");
-                //BindData();
+                // Check if the record with the given ID exists
+                SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Schedule WHERE ID = @ID", connection);
+                checkCmd.Parameters.AddWithValue("@ID", textBox2.Text);
+                int count = (int)checkCmd.ExecuteScalar();
+                if (textBox2.Text!="")
+                {
+                    if (count > 0)
+                    {
+                        // If record exists, update it
+                        SqlCommand updateCmd = new SqlCommand("UPDATE Schedule SET Details = @Value2 WHERE ID = @ID", connection);
+                        updateCmd.Parameters.AddWithValue("@Value2", textBox1.Text);
+                        updateCmd.Parameters.AddWithValue("@ID", textBox2.Text);
+                        updateCmd.ExecuteNonQuery();
+                        MessageBox.Show("Updated");
+                    }
+                    else
+                    {
+                        // If record doesn't exist, insert a new one
+                        SqlCommand insertCmd = new SqlCommand("INSERT INTO Schedule VALUES (@Value2, @Value3)", connection);
+                        insertCmd.Parameters.AddWithValue("@Value2", monthCalendar1.SelectionStart);
+                        insertCmd.Parameters.AddWithValue("@Value3", textBox1.Text);
+                        insertCmd.ExecuteNonQuery();
+                        MessageBox.Show("Inserted");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Enter Details");
+                }
+                
+
                 connection.Close();
             }
             catch (Exception ex)

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.paymentBtn = new System.Windows.Forms.Button();
             this.white = new System.Windows.Forms.Button();
             this.black = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -37,11 +38,8 @@
             this.LearnersBtn = new System.Windows.Forms.Button();
             this.DriversBtn = new System.Windows.Forms.Button();
             this.DashboardBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.paymentBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panelRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,6 +59,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(283, 584);
             this.panel1.TabIndex = 0;
+            // 
+            // paymentBtn
+            // 
+            this.paymentBtn.Location = new System.Drawing.Point(4, 462);
+            this.paymentBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.paymentBtn.Name = "paymentBtn";
+            this.paymentBtn.Size = new System.Drawing.Size(275, 54);
+            this.paymentBtn.TabIndex = 8;
+            this.paymentBtn.Text = "Payments";
+            this.paymentBtn.UseVisualStyleBackColor = true;
+            this.paymentBtn.Click += new System.EventHandler(this.paymentBtn_Click);
             // 
             // white
             // 
@@ -146,36 +155,14 @@
             this.DashboardBtn.UseVisualStyleBackColor = true;
             this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(383, 277);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-            // 
             // panelRight
             // 
-            this.panelRight.Controls.Add(this.label1);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Location = new System.Drawing.Point(283, 0);
             this.panelRight.Margin = new System.Windows.Forms.Padding(4);
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(938, 584);
             this.panelRight.TabIndex = 2;
-            // 
-            // paymentBtn
-            // 
-            this.paymentBtn.Location = new System.Drawing.Point(4, 462);
-            this.paymentBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.paymentBtn.Name = "paymentBtn";
-            this.paymentBtn.Size = new System.Drawing.Size(275, 54);
-            this.paymentBtn.TabIndex = 8;
-            this.paymentBtn.Text = "Payments";
-            this.paymentBtn.UseVisualStyleBackColor = true;
-            this.paymentBtn.Click += new System.EventHandler(this.paymentBtn_Click);
             // 
             // Main
             // 
@@ -190,8 +177,6 @@
             this.Text = "L Tracker Plus";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
-            this.panelRight.ResumeLayout(false);
-            this.panelRight.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -205,7 +190,6 @@
         private System.Windows.Forms.Button DriversBtn;
         private System.Windows.Forms.Button DashboardBtn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Button white;
         private System.Windows.Forms.Button black;

@@ -17,6 +17,7 @@ namespace driving_school_management_system
         public Schedule()
         {
             InitializeComponent();
+            
         }
 
         SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
@@ -55,10 +56,25 @@ namespace driving_school_management_system
 
             // Display the events in your form
             listBox1.Items.Clear();
+            textBox1.Text = "";
+            //textBox2.Text = "";
+            /*if (events != null )
+            {
+                
+            }*/
             foreach (string ev in events)
             {
-                listBox1.Items.Add(ev);
+                //listBox1.Items.Add(ev);
+                textBox1.Text = ev;
+                // Console.WriteLine(events);
             }
+            /*else
+            {
+                textBox1.Multiline = true;
+                textBox1.Text = "This is a multiline textbox.";
+                //Console.WriteLine("dghds"+ events);
+            }*/
+
         }
 
         public List<string> GetEventsForDate(DateTime selectedDate)
@@ -68,14 +84,80 @@ namespace driving_school_management_system
 
             SqlCommand checkCmd = new SqlCommand("SELECT Details FROM Schedule WHERE Date = @SelectedDate",connection);
             checkCmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
+            SqlCommand checkCmd1 = new SqlCommand("SELECT Id FROM Schedule WHERE Date = @SelectedDate", connection);
+            checkCmd1.Parameters.AddWithValue("@SelectedDate", selectedDate);
+            
             connection.Open();
             SqlDataReader reader = checkCmd.ExecuteReader();
+            
             while (reader.Read())
             {
                 events.Add(reader["Details"].ToString());
+                //textBox2.Text = reader["Id"].ToString();  
             }
+            reader.Close();
+            SqlDataReader reader1 = checkCmd1.ExecuteReader();
+            if (reader1.Read())
+            {
+                //events.Add(reader["Details"].ToString());
+                
+                textBox2.Text = reader1["Id"].ToString();
+            }
+            else
+            {
+                textBox2.Text = "";
+            }
+            
+            reader1.Close();
             connection.Close();
             return events;
+        }
+
+        private void YourForm_Load(object sender, EventArgs e)
+        {
+            // Set the formatted text when the form loads
+            textBox1.Multiline = true;
+            textBox1.Text = "This is a multiline textbox.\r\n"
+                          + "You can add formatted text like this:\r\n"
+                          + "- Bullet Point 1\r\n"
+                          + "- Bullet Point 2\r\n"
+                          + "    - Sub Bullet Point\r\n"
+                          + "More text here...";
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            // Check if the driverId TextBox is not empty
+            if (!string.IsNullOrEmpty(textBox2.Text))
+            {
+                // Confirm with the user
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand("DELETE FROM Schedule WHERE Id = @ID", connection);
+                        cmd.Parameters.AddWithValue("@ID", textBox2.Text);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Deleted");
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                        //BindData();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("Error deleting record: " + ex.Message);
+                    }
+                }
+                // If user clicks No, do nothing
+            }
+            else
+            {
+                MessageBox.Show("No Events to Delete");
+            }
         }
     }
 }

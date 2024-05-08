@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.vehicleCountLabel = new System.Windows.Forms.Label();
             this.driverCountLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,15 +36,6 @@
             this.studentsCountLabel = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(378, 68);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(251, 24);
-            this.comboBox1.TabIndex = 0;
             // 
             // vehicleCountLabel
             // 
@@ -122,7 +112,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.driverCountLabel);
             this.Controls.Add(this.vehicleCountLabel);
-            this.Controls.Add(this.comboBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
@@ -133,8 +122,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label vehicleCountLabel;
         private System.Windows.Forms.Label driverCountLabel;
         private System.Windows.Forms.Label label1;

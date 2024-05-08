@@ -30,7 +30,7 @@
         {
             this.dataGridViewLearners = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Browse = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -91,15 +91,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Id";
             // 
-            // button1
+            // Browse
             // 
-            this.button1.Location = new System.Drawing.Point(944, 334);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Browse.Location = new System.Drawing.Point(944, 334);
+            this.Browse.Name = "Browse";
+            this.Browse.Size = new System.Drawing.Size(75, 23);
+            this.Browse.TabIndex = 2;
+            this.Browse.Text = "Browse";
+            this.Browse.UseVisualStyleBackColor = true;
+            this.Browse.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -200,7 +200,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 16;
-            this.button2.Text = "button2";
+            this.button2.Text = "Browse";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -210,7 +210,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 17;
-            this.button3.Text = "button3";
+            this.button3.Text = "Browse";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -281,7 +281,7 @@
             this.updateIdPDFBtn.Name = "updateIdPDFBtn";
             this.updateIdPDFBtn.Size = new System.Drawing.Size(75, 23);
             this.updateIdPDFBtn.TabIndex = 23;
-            this.updateIdPDFBtn.Text = "button4";
+            this.updateIdPDFBtn.Text = "Upload";
             this.updateIdPDFBtn.UseVisualStyleBackColor = true;
             this.updateIdPDFBtn.Click += new System.EventHandler(this.updateIdPDFBtn_Click);
             // 
@@ -307,7 +307,7 @@
             this.updateBCPDFBtn.Name = "updateBCPDFBtn";
             this.updateBCPDFBtn.Size = new System.Drawing.Size(75, 23);
             this.updateBCPDFBtn.TabIndex = 26;
-            this.updateBCPDFBtn.Text = "button4";
+            this.updateBCPDFBtn.Text = "Upload";
             this.updateBCPDFBtn.UseVisualStyleBackColor = true;
             // 
             // updateMRPDFBtn
@@ -316,7 +316,7 @@
             this.updateMRPDFBtn.Name = "updateMRPDFBtn";
             this.updateMRPDFBtn.Size = new System.Drawing.Size(75, 23);
             this.updateMRPDFBtn.TabIndex = 27;
-            this.updateMRPDFBtn.Text = "button4";
+            this.updateMRPDFBtn.Text = "Upload";
             this.updateMRPDFBtn.UseVisualStyleBackColor = true;
             // 
             // textBox8
@@ -424,7 +424,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Browse);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewLearners);
             this.Name = "Learners";
@@ -441,7 +441,7 @@
 
         private System.Windows.Forms.DataGridView dataGridViewLearners;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Browse;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

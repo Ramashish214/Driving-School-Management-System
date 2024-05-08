@@ -58,6 +58,8 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.updateBCPDFBtn = new System.Windows.Forms.Button();
             this.updateMRPDFBtn = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLearners)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,7 +148,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(59, 445);
+            this.label7.Location = new System.Drawing.Point(59, 467);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 16);
             this.label7.TabIndex = 9;
@@ -260,7 +262,7 @@
             "Not Written",
             "Pass",
             "Fail"});
-            this.comboBox2.Location = new System.Drawing.Point(180, 442);
+            this.comboBox2.Location = new System.Drawing.Point(180, 464);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 22;
@@ -309,11 +311,29 @@
             this.updateMRPDFBtn.Text = "button4";
             this.updateMRPDFBtn.UseVisualStyleBackColor = true;
             // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(180, 434);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(121, 22);
+            this.textBox8.TabIndex = 28;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(59, 437);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 16);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Contact No";
+            // 
             // Learners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 500);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.updateMRPDFBtn);
             this.Controls.Add(this.updateBCPDFBtn);
             this.Controls.Add(this.textBox6);
@@ -381,5 +401,7 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button updateBCPDFBtn;
         private System.Windows.Forms.Button updateMRPDFBtn;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label10;
     }
 }

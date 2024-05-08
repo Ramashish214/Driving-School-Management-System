@@ -222,12 +222,13 @@ namespace driving_school_management_system
 
             try
             {
-                SqlCommand insertCmd = new SqlCommand("INSERT INTO Learner (Id, Name, [License Type], Address,[Written Exam]) VALUES (@Value1, @Value2, @Value3, @Value4, @Value5)", connection);
+                SqlCommand insertCmd = new SqlCommand("INSERT INTO Learner (Id, Name, Address,[Contact No],[License Type],[Written Exam]) VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6)", connection);
                 insertCmd.Parameters.AddWithValue("@Value1", textBox1.Text);
                 insertCmd.Parameters.AddWithValue("@Value2", textBox2.Text);
-                insertCmd.Parameters.AddWithValue("@Value3", comboBox1.Text);
-                insertCmd.Parameters.AddWithValue("@Value4", textBox7.Text);
-                insertCmd.Parameters.AddWithValue("@Value5", comboBox2.Text);
+                insertCmd.Parameters.AddWithValue("@Value5", comboBox1.Text);
+                insertCmd.Parameters.AddWithValue("@Value3", textBox7.Text);
+                insertCmd.Parameters.AddWithValue("@Value4", textBox8.Text);
+                insertCmd.Parameters.AddWithValue("@Value6", comboBox2.Text);
                 insertCmd.ExecuteNonQuery();
                 MessageBox.Show("Inserted");
                 BindData();

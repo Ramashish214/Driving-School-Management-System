@@ -46,6 +46,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.updateBtn = new System.Windows.Forms.Button();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDriver)).BeginInit();
             this.SuspendLayout();
             // 
@@ -234,11 +236,32 @@
             this.updateBtn.UseVisualStyleBackColor = true;
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(668, 536);
+            this.searchBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(100, 28);
+            this.searchBtn.TabIndex = 19;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(505, 539);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(105, 22);
+            this.textBox2.TabIndex = 20;
+            // 
             // Drivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 612);
+            this.ClientSize = new System.Drawing.Size(1069, 619);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
@@ -287,5 +310,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

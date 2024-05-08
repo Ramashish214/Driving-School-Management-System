@@ -201,5 +201,34 @@ namespace driving_school_management_system
                 connection.Close();
             }
         }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            // Check if the text box has a value
+            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                // Show a message or perform any action to notify the user
+                MessageBox.Show("Please enter a search term.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Exit the event handler
+            }
+
+            // Proceed with the search operation
+            string searchText = textBox2.Text.Trim();
+            dataGridViewDriver.ClearSelection();
+            // Iterate through each row in the DataGridView
+            foreach (DataGridViewRow row in dataGridViewDriver.Rows)
+            {
+                // Assuming the unique identifier is in the first column, adjust column index if necessary
+                string cellValue = row.Cells[0].Value.ToString();
+
+                // If the cell value matches the search text, select the row and exit the loop
+                if (cellValue.Equals(searchText, StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Selected = true;
+                    dataGridViewDriver.FirstDisplayedScrollingRowIndex = row.Index; // Scroll to the selected row
+                    break;
+                }
+            }
+        }
     }
 }

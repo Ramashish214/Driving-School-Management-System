@@ -60,7 +60,12 @@
             this.updateMRPDFBtn = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.updateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLearners)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewLearners
@@ -73,6 +78,7 @@
             this.dataGridViewLearners.Size = new System.Drawing.Size(1242, 228);
             this.dataGridViewLearners.TabIndex = 0;
             this.dataGridViewLearners.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLearners_CellContentClick);
+            this.dataGridViewLearners.SelectionChanged += new System.EventHandler(this.dataGridViewLearners_SelectionChanged);
             // 
             // label1
             // 
@@ -327,11 +333,51 @@
             this.label10.TabIndex = 29;
             this.label10.Text = "Contact No";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(57, 508);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 16);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Attendance";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(180, 508);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 33;
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Location = new System.Drawing.Point(454, 442);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteBtn.TabIndex = 34;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.Location = new System.Drawing.Point(564, 442);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateBtn.TabIndex = 35;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            // 
             // Learners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1276, 500);
+            this.ClientSize = new System.Drawing.Size(1276, 560);
+            this.Controls.Add(this.updateBtn);
+            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.updateMRPDFBtn);
@@ -364,6 +410,7 @@
             this.Text = "Learners";
             this.Load += new System.EventHandler(this.Learners_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLearners)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,5 +450,9 @@
         private System.Windows.Forms.Button updateMRPDFBtn;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button updateBtn;
     }
 }

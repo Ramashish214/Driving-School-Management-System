@@ -18,8 +18,8 @@ namespace driving_school_management_system
     public partial class Payements : Form
     {
 
-        private string filePath = Path.Combine(Environment.CurrentDirectory, "E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\DrivingSchoolDetails.txt"); // Absolute path to the file to store the values
-        private string descriptionFilePath = "E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\ServiceDescription.txt";
+        private string filePath = Path.Combine(Environment.CurrentDirectory, "DrivingSchoolDetails.txt"); // Absolute path to the file to store the values
+        private string descriptionFilePath = "ServiceDescription.txt";
 
         public Payements()
         {

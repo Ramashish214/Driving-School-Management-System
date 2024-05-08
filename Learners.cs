@@ -222,13 +222,14 @@ namespace driving_school_management_system
 
             try
             {
-                SqlCommand insertCmd = new SqlCommand("INSERT INTO Learner (Id, Name, Address,[Contact No],[License Type],[Written Exam]) VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6)", connection);
+                SqlCommand insertCmd = new SqlCommand("INSERT INTO Learner (Id, Name, Address,[Contact No],[License Type],[Written Exam],[Attendance]) VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6, @Value7)", connection);
                 insertCmd.Parameters.AddWithValue("@Value1", textBox1.Text);
                 insertCmd.Parameters.AddWithValue("@Value2", textBox2.Text);
                 insertCmd.Parameters.AddWithValue("@Value5", comboBox1.Text);
                 insertCmd.Parameters.AddWithValue("@Value3", textBox7.Text);
                 insertCmd.Parameters.AddWithValue("@Value4", textBox8.Text);
                 insertCmd.Parameters.AddWithValue("@Value6", comboBox2.Text);
+                insertCmd.Parameters.AddWithValue("@Value7", numericUpDown1.Value);
                 insertCmd.ExecuteNonQuery();
                 MessageBox.Show("Inserted");
                 BindData();
@@ -266,7 +267,7 @@ namespace driving_school_management_system
 
         private void dataGridViewLearners_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ((e.ColumnIndex == dataGridViewLearners.Columns["National ID"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile1"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile2"].Index && e.RowIndex  >= 0))
+            if ((e.ColumnIndex == dataGridViewLearners.Columns["National ID"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile1"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile2"].Index && e.RowIndex >= 0))
             {
                 // Get the ID from the clicked row
                 string id = dataGridViewLearners.Rows[e.RowIndex].Cells["Id"].Value.ToString();
@@ -302,7 +303,7 @@ namespace driving_school_management_system
             }
         }
 
-        private void UpdateRecord(string id, byte[] fileBytes,string name)
+        private void UpdateRecord(string id, byte[] fileBytes, string name)
         {
             try
             {
@@ -320,7 +321,7 @@ namespace driving_school_management_system
                     cmd.Parameters.Add("@FileBytes", SqlDbType.VarBinary, -1).Value = fileBytes;
                 }
 
-               
+
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Record updated successfully.");
@@ -333,6 +334,117 @@ namespace driving_school_management_system
             {
                 connection.Close();
                 BindData(); // Refresh DataGridView
+            }
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            // Check if the driverId TextBox is not empty
+            if (!string.IsNullOrEmpty(textBox1.Text))
+            {
+                // Confirm with the user
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand("DELETE FROM Learner WHERE [Id] = @ID", connection);
+                        cmd.Parameters.AddWithValue("@ID", textBox1.Text);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Deleted");
+                        BindData();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("Error deleting record: " + ex.Message);
+                    }
+                }
+                // If user clicks No, do nothing
+            }
+            else
+            {
+                MessageBox.Show("Please enter an ID to delete.");
+            }
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            try
+            {
+                // Check if the record exists
+                SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Learner WHERE Id = @PrimaryKeyValue", connection);
+                checkCmd.Parameters.AddWithValue("@PrimaryKeyValue", textBox1.Text);
+                int existingCount = (int)checkCmd.ExecuteScalar();
+
+                if (existingCount == 0)
+                {
+                    MessageBox.Show("Record does not exist. Please enter a valid ID.");
+                    connection.Close();
+                    return; // Exit the event handler
+                }
+
+                // Proceed with the update
+                SqlCommand updateCmd = new SqlCommand("UPDATE Learner SET Name = @Value3, Address = @Value4, [Contact No] = @Value5, [License Type] = @Value6, [Written Exam] = @Value7, [Attendance] = @Value8 WHERE Id = @PrimaryKeyValue", connection);
+                updateCmd.Parameters.AddWithValue("@PrimaryKeyValue", textBox1.Text);
+                //updateCmd.Parameters.AddWithValue("@Value2", comboBox1.Text);
+                updateCmd.Parameters.AddWithValue("@Value3", textBox2.Text);
+                updateCmd.Parameters.AddWithValue("@Value4", textBox7.Text);
+                updateCmd.Parameters.AddWithValue("@Value5", textBox8.Text);
+                updateCmd.Parameters.AddWithValue("@Value6", comboBox1.Text);
+                updateCmd.Parameters.AddWithValue("@Value7", comboBox2.Text);
+                updateCmd.Parameters.AddWithValue("@Value8", numericUpDown1.Value);
+                updateCmd.ExecuteNonQuery();
+                MessageBox.Show("Updated");
+                BindData();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("An error occurred while updating data: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private void dataGridViewLearners_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewLearners.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridViewLearners.SelectedRows[0];
+
+                // Assuming txtBox1, txtBox2, txtBox3 are your TextBox controls
+                
+                textBox1.Text = selectedRow.Cells["Id"].Value.ToString();
+                textBox2.Text = selectedRow.Cells["Name"].Value.ToString();
+                comboBox1.Text = selectedRow.Cells["License Type"].Value.ToString();
+                textBox7.Text = selectedRow.Cells["Address"].Value.ToString();
+                textBox8.Text = selectedRow.Cells["Contact No"].Value.ToString();
+                comboBox2.Text = selectedRow.Cells["Written Exam"].Value.ToString();
+                //numericUpDown1.Value = int.Parse(selectedRow.Cells["Attendance"].Value.ToString());
+                object attendanceCellValue = selectedRow.Cells["Attendance"].Value;
+                if (attendanceCellValue != null)
+                {
+                    if (int.TryParse(attendanceCellValue.ToString(), out int attendanceValue))
+                    {
+                        numericUpDown1.Value = attendanceValue;
+                    }
+                    else
+                    {
+                        // Handle if the value cannot be parsed to an integer
+                        numericUpDown1.Value=0;
+                    }
+                }
+                else
+                {
+                    // Handle if the cell value is null
+                    MessageBox.Show("Attendance value is null.");
+                }
             }
         }
     }

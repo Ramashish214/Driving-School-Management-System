@@ -93,56 +93,61 @@ namespace driving_school_management_system
         {
             //SetWhiteTheme();
         }
+
+        private void paymentBtn_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Payements());
+        }
         /*
-        private Color _backgroundColor;
-        private Color _foregroundColor;
+private Color _backgroundColor;
+private Color _foregroundColor;
 
-        private void SetBlackTheme()
-        {
-            _backgroundColor = Color.Black;
-            _foregroundColor = Color.White;
-            ApplyTheme(this.Controls);
-            // Apply theme to forms in the right panel
-            ApplyThemeToRightPanel();
-        }
+private void SetBlackTheme()
+{
+   _backgroundColor = Color.Black;
+   _foregroundColor = Color.White;
+   ApplyTheme(this.Controls);
+   // Apply theme to forms in the right panel
+   ApplyThemeToRightPanel();
+}
 
-        private void SetWhiteTheme()
-        {
-            _backgroundColor = Color.White;
-            _foregroundColor = Color.Black;
-            ApplyTheme(this.Controls);
-            // Apply theme to forms in the right panel
-            ApplyThemeToRightPanel();
-        }
+private void SetWhiteTheme()
+{
+   _backgroundColor = Color.White;
+   _foregroundColor = Color.Black;
+   ApplyTheme(this.Controls);
+   // Apply theme to forms in the right panel
+   ApplyThemeToRightPanel();
+}
 
-        private void ApplyTheme(Control.ControlCollection controls)
-        {
-            foreach (Control control in controls)
-            {
-                control.BackColor = _backgroundColor;
-                control.ForeColor = _foregroundColor;
+private void ApplyTheme(Control.ControlCollection controls)
+{
+   foreach (Control control in controls)
+   {
+       control.BackColor = _backgroundColor;
+       control.ForeColor = _foregroundColor;
 
-                if (control.HasChildren)
-                {
-                    ApplyTheme(control.Controls);
-                }
-            }
-        }
+       if (control.HasChildren)
+       {
+           ApplyTheme(control.Controls);
+       }
+   }
+}
 
-        private void ApplyThemeToRightPanel()
-        {
-            foreach (Control control in panelRight.Controls)
-            {
-                if (control is Form)
-                {
-                    control.BackColor = _backgroundColor;
-                    control.ForeColor = _foregroundColor;
+private void ApplyThemeToRightPanel()
+{
+   foreach (Control control in panelRight.Controls)
+   {
+       if (control is Form)
+       {
+           control.BackColor = _backgroundColor;
+           control.ForeColor = _foregroundColor;
 
-                    // Apply theme to controls within the form
-                    ApplyTheme(control.Controls);
-                }
-            }
-        }*/
+           // Apply theme to controls within the form
+           ApplyTheme(control.Controls);
+       }
+   }
+}*/
 
     }
 }

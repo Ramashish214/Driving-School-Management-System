@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.white = new System.Windows.Forms.Button();
+            this.black = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ScheduleBtn = new System.Windows.Forms.Button();
             this.VehiclesBtn = new System.Windows.Forms.Button();
@@ -37,14 +39,14 @@
             this.DashboardBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.black = new System.Windows.Forms.Button();
-            this.white = new System.Windows.Forms.Button();
+            this.paymentBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.paymentBtn);
             this.panel1.Controls.Add(this.white);
             this.panel1.Controls.Add(this.black);
             this.panel1.Controls.Add(this.panel2);
@@ -55,16 +57,36 @@
             this.panel1.Controls.Add(this.DashboardBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 554);
+            this.panel1.Size = new System.Drawing.Size(283, 584);
             this.panel1.TabIndex = 0;
+            // 
+            // white
+            // 
+            this.white.Location = new System.Drawing.Point(164, 537);
+            this.white.Name = "white";
+            this.white.Size = new System.Drawing.Size(75, 23);
+            this.white.TabIndex = 7;
+            this.white.Text = "white";
+            this.white.UseVisualStyleBackColor = true;
+            this.white.Click += new System.EventHandler(this.white_Click);
+            // 
+            // black
+            // 
+            this.black.Location = new System.Drawing.Point(42, 537);
+            this.black.Name = "black";
+            this.black.Size = new System.Drawing.Size(75, 23);
+            this.black.TabIndex = 6;
+            this.black.Text = "black";
+            this.black.UseVisualStyleBackColor = true;
+            this.black.Click += new System.EventHandler(this.black_Click);
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(283, 143);
             this.panel2.TabIndex = 5;
@@ -72,7 +94,7 @@
             // ScheduleBtn
             // 
             this.ScheduleBtn.Location = new System.Drawing.Point(4, 400);
-            this.ScheduleBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ScheduleBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ScheduleBtn.Name = "ScheduleBtn";
             this.ScheduleBtn.Size = new System.Drawing.Size(275, 54);
             this.ScheduleBtn.TabIndex = 4;
@@ -83,7 +105,7 @@
             // VehiclesBtn
             // 
             this.VehiclesBtn.Location = new System.Drawing.Point(4, 338);
-            this.VehiclesBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VehiclesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.VehiclesBtn.Name = "VehiclesBtn";
             this.VehiclesBtn.Size = new System.Drawing.Size(275, 54);
             this.VehiclesBtn.TabIndex = 3;
@@ -94,7 +116,7 @@
             // LearnersBtn
             // 
             this.LearnersBtn.Location = new System.Drawing.Point(4, 277);
-            this.LearnersBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LearnersBtn.Margin = new System.Windows.Forms.Padding(4);
             this.LearnersBtn.Name = "LearnersBtn";
             this.LearnersBtn.Size = new System.Drawing.Size(275, 54);
             this.LearnersBtn.TabIndex = 2;
@@ -105,7 +127,7 @@
             // DriversBtn
             // 
             this.DriversBtn.Location = new System.Drawing.Point(4, 215);
-            this.DriversBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DriversBtn.Margin = new System.Windows.Forms.Padding(4);
             this.DriversBtn.Name = "DriversBtn";
             this.DriversBtn.Size = new System.Drawing.Size(275, 54);
             this.DriversBtn.TabIndex = 1;
@@ -116,7 +138,7 @@
             // DashboardBtn
             // 
             this.DashboardBtn.Location = new System.Drawing.Point(4, 154);
-            this.DashboardBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DashboardBtn.Margin = new System.Windows.Forms.Padding(4);
             this.DashboardBtn.Name = "DashboardBtn";
             this.DashboardBtn.Size = new System.Drawing.Size(275, 54);
             this.DashboardBtn.TabIndex = 0;
@@ -139,39 +161,30 @@
             this.panelRight.Controls.Add(this.label1);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Location = new System.Drawing.Point(283, 0);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelRight.Margin = new System.Windows.Forms.Padding(4);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(938, 554);
+            this.panelRight.Size = new System.Drawing.Size(938, 584);
             this.panelRight.TabIndex = 2;
             // 
-            // black
+            // paymentBtn
             // 
-            this.black.Location = new System.Drawing.Point(42, 505);
-            this.black.Name = "black";
-            this.black.Size = new System.Drawing.Size(75, 23);
-            this.black.TabIndex = 6;
-            this.black.Text = "black";
-            this.black.UseVisualStyleBackColor = true;
-            this.black.Click += new System.EventHandler(this.black_Click);
-            // 
-            // white
-            // 
-            this.white.Location = new System.Drawing.Point(153, 505);
-            this.white.Name = "white";
-            this.white.Size = new System.Drawing.Size(75, 23);
-            this.white.TabIndex = 7;
-            this.white.Text = "white";
-            this.white.UseVisualStyleBackColor = true;
-            this.white.Click += new System.EventHandler(this.white_Click);
+            this.paymentBtn.Location = new System.Drawing.Point(4, 462);
+            this.paymentBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.paymentBtn.Name = "paymentBtn";
+            this.paymentBtn.Size = new System.Drawing.Size(275, 54);
+            this.paymentBtn.TabIndex = 8;
+            this.paymentBtn.Text = "Payments";
+            this.paymentBtn.UseVisualStyleBackColor = true;
+            this.paymentBtn.Click += new System.EventHandler(this.paymentBtn_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1221, 554);
+            this.ClientSize = new System.Drawing.Size(1221, 584);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "L Tracker Plus";
@@ -196,5 +209,6 @@
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Button white;
         private System.Windows.Forms.Button black;
+        private System.Windows.Forms.Button paymentBtn;
     }
 }

@@ -48,6 +48,13 @@
             this.calculateBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.updateBtn = new System.Windows.Forms.Button();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -212,11 +219,76 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // updateBtn
+            // 
+            this.updateBtn.Location = new System.Drawing.Point(745, 201);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(203, 23);
+            this.updateBtn.TabIndex = 20;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(848, 69);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 22);
+            this.textBox9.TabIndex = 21;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(848, 111);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 22);
+            this.textBox10.TabIndex = 22;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(848, 149);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 22);
+            this.textBox11.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(742, 71);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 16);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Name";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(742, 117);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(58, 16);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Address";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(742, 158);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 16);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Contact No";
+            // 
             // Payements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1131, 562);
+            this.ClientSize = new System.Drawing.Size(1123, 449);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.calculateBtn);
             this.Controls.Add(this.textBox8);
@@ -238,6 +310,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Payements";
             this.Text = "Payements";
+            this.Load += new System.EventHandler(this.Payements_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +338,12 @@
         private System.Windows.Forms.Button calculateBtn;
         private System.Windows.Forms.Button printBtn;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

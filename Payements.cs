@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,15 +17,40 @@ namespace driving_school_management_system
 {
     public partial class Payements : Form
     {
+
+        private string filePath = Path.Combine(Environment.CurrentDirectory, "E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\DrivingSchoolDetails.txt"); // Absolute path to the file to store the values
+
+
         public Payements()
         {
             InitializeComponent();
+            
             printDocument1.PrintPage += printDocument1_PrintPage;
             printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A6", 413, 583);
         }
 
         SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
 
+        private void LoadTextBoxValues()
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    string[] lines = File.ReadAllLines(filePath);
+                    if (lines.Length >= 3) // Make sure we have at least three lines in the file
+                    {
+                        textBox9.Text = lines[0];
+                        textBox10.Text = lines[1];
+                        textBox11.Text = lines[2];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading textbox values: " + ex.Message);
+            }
+        }
         private void searchBtn_Click(object sender, EventArgs e)
         {
             // Check if the text box has a value
@@ -100,9 +126,9 @@ namespace driving_school_management_system
             TextBox[] textBoxes = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8 };
 
             // Driving school details
-            string schoolName = "My Driving School";
-            string schoolAddress = "123 Street, City, Country";
-            string schoolContact = "Phone: 123-456-7890";
+            string schoolName = textBox9.Text;
+            string schoolAddress = textBox10.Text;
+            string schoolContact = textBox11.Text;
 
             // Print driving school details at the top
             g.DrawString(schoolName, titleFont, brush, startX, startY);
@@ -170,6 +196,25 @@ namespace driving_school_management_system
             {
                 // Start printing
                 printDocument1.Print();
+            }
+        }
+
+        private void Payements_Load(object sender, EventArgs e)
+        {
+            LoadTextBoxValues();
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] lines = { textBox9.Text, textBox10.Text, textBox11.Text };
+                File.WriteAllLines(filePath, lines);
+                MessageBox.Show("Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving textbox values: " + ex.Message);
             }
         }
     }

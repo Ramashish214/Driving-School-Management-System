@@ -193,6 +193,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>dbSystemDSMS.mdf</DependentUpon>
     </Content>
+    <Content Include="DrivingSchoolDetails.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

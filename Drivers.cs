@@ -66,6 +66,13 @@ namespace driving_school_management_system
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrWhiteSpace(driverId.Text))
+            {
+                MessageBox.Show("Please enter a value for the driver ID.");
+                return; // Exit the event handler
+            }
+
             connection.Open();
 
             // Check if the primary key already exists

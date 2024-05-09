@@ -91,6 +91,12 @@ namespace driving_school_management_system
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(vehicleNo.Text))
+            {
+                MessageBox.Show("Please enter a value for the Vehicle No");
+                return; // Exit the event handler
+            }
+
             connection.Open();
 
             // Check if the primary key already exists

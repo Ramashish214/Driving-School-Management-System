@@ -20,7 +20,7 @@ namespace driving_school_management_system
             
         }
 
-        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
+        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbSystemDSMS.mdf;Integrated Security=True");
 
         /*private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -183,6 +183,11 @@ namespace driving_school_management_system
             {
                 MessageBox.Show("No Events to Delete");
             }
+        }
+
+        private void Schedule_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

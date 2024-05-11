@@ -57,7 +57,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 584);
+            this.panel1.Size = new System.Drawing.Size(283, 668);
             this.panel1.TabIndex = 0;
             // 
             // paymentBtn
@@ -161,14 +161,14 @@
             this.panelRight.Location = new System.Drawing.Point(283, 0);
             this.panelRight.Margin = new System.Windows.Forms.Padding(4);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(938, 584);
+            this.panelRight.Size = new System.Drawing.Size(1112, 668);
             this.panelRight.TabIndex = 2;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1221, 584);
+            this.ClientSize = new System.Drawing.Size(1395, 668);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);

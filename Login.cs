@@ -23,5 +23,10 @@ namespace driving_school_management_system
             Main form = new Main();
             form.Show();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

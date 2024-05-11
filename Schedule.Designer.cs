@@ -131,6 +131,7 @@
             this.Controls.Add(this.monthCalendar1);
             this.Name = "Schedule";
             this.Text = "Schedule";
+            this.Load += new System.EventHandler(this.Schedule_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

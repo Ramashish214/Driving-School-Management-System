@@ -52,12 +52,14 @@
             // 
             // dataGridViewVehicles
             // 
+            this.dataGridViewVehicles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVehicles.Location = new System.Drawing.Point(35, 21);
+            this.dataGridViewVehicles.Location = new System.Drawing.Point(13, 13);
             this.dataGridViewVehicles.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewVehicles.Name = "dataGridViewVehicles";
             this.dataGridViewVehicles.RowHeadersWidth = 51;
-            this.dataGridViewVehicles.Size = new System.Drawing.Size(1050, 280);
+            this.dataGridViewVehicles.Size = new System.Drawing.Size(1165, 278);
             this.dataGridViewVehicles.TabIndex = 0;
             this.dataGridViewVehicles.SelectionChanged += new System.EventHandler(this.dataGridViewVehicles_SelectionChanged);
             // 
@@ -238,7 +240,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 573);
+            this.ClientSize = new System.Drawing.Size(1191, 690);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.label7);

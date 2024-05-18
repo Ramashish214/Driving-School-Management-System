@@ -147,6 +147,8 @@ namespace driving_school_management_system
 
         private void Learners_Load(object sender, EventArgs e)
         {
+            contentLoad();
+
             BindData();
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
             buttonColumn.HeaderText = "National ID";
@@ -478,6 +480,99 @@ namespace driving_school_management_system
             {
                 MessageBox.Show("Please enter a search value.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        void contentLoad()
+        {
+            label9.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            label6.Visible = false;
+            textBox6.Visible = false;
+            textBox3.Visible = false;
+            textBox4.Visible = false;
+            textBox5.Visible = false;
+            Browse.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            updateIdPDFBtn.Visible = false;
+            updateBCPDFBtn.Visible = false;
+            updateMRPDFBtn.Visible = false;
+
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            label8.Visible = true;
+            label10.Visible = true;
+            label7.Visible = true;
+            label11.Visible = true;
+            addBtn.Visible = true;
+            updateBtn.Visible = true;
+            deleteBtn.Visible = true;
+            textBox1.Visible = true;
+            textBox2.Visible = true;
+            textBox7.Visible = true;
+            textBox8.Visible = true;
+            comboBox1.Visible = true;
+            comboBox2.Visible = true;
+            numericUpDown1.Visible = true;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            contentLoad();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            label9.Visible = true;
+            label4.Visible = true;
+            label5.Visible = true;
+            label6.Visible = true;
+            textBox6.Visible = true;
+            textBox3.Visible = true;
+            textBox4.Visible = true;
+            textBox5.Visible = true;
+            Browse.Visible = true;
+            button2.Visible = true;
+            button3.Visible = true;
+            updateIdPDFBtn.Visible = true;
+            updateBCPDFBtn.Visible = true;
+            updateMRPDFBtn.Visible = true;
+
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label8.Visible = false;
+            label10.Visible = false;
+            label7.Visible = false;
+            label11.Visible = false;
+            addBtn.Visible = false;
+            updateBtn.Visible = false;
+            deleteBtn.Visible = false;
+            textBox1.Visible = false;
+            textBox2.Visible = false;
+            textBox7.Visible = false;
+            textBox8.Visible = false;
+            comboBox1.Visible = false;
+            comboBox2.Visible = false;
+            numericUpDown1.Visible = false;
         }
     }
 }

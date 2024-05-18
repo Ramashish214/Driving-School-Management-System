@@ -62,7 +62,7 @@
             // 
             // paymentBtn
             // 
-            this.paymentBtn.Location = new System.Drawing.Point(4, 462);
+            this.paymentBtn.Location = new System.Drawing.Point(4, 434);
             this.paymentBtn.Margin = new System.Windows.Forms.Padding(4);
             this.paymentBtn.Name = "paymentBtn";
             this.paymentBtn.Size = new System.Drawing.Size(275, 54);
@@ -97,12 +97,12 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(283, 143);
+            this.panel2.Size = new System.Drawing.Size(283, 96);
             this.panel2.TabIndex = 5;
             // 
             // ScheduleBtn
             // 
-            this.ScheduleBtn.Location = new System.Drawing.Point(4, 400);
+            this.ScheduleBtn.Location = new System.Drawing.Point(4, 372);
             this.ScheduleBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ScheduleBtn.Name = "ScheduleBtn";
             this.ScheduleBtn.Size = new System.Drawing.Size(275, 54);
@@ -113,7 +113,7 @@
             // 
             // VehiclesBtn
             // 
-            this.VehiclesBtn.Location = new System.Drawing.Point(4, 338);
+            this.VehiclesBtn.Location = new System.Drawing.Point(4, 310);
             this.VehiclesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.VehiclesBtn.Name = "VehiclesBtn";
             this.VehiclesBtn.Size = new System.Drawing.Size(275, 54);
@@ -124,7 +124,7 @@
             // 
             // LearnersBtn
             // 
-            this.LearnersBtn.Location = new System.Drawing.Point(4, 277);
+            this.LearnersBtn.Location = new System.Drawing.Point(4, 248);
             this.LearnersBtn.Margin = new System.Windows.Forms.Padding(4);
             this.LearnersBtn.Name = "LearnersBtn";
             this.LearnersBtn.Size = new System.Drawing.Size(275, 54);
@@ -135,7 +135,7 @@
             // 
             // DriversBtn
             // 
-            this.DriversBtn.Location = new System.Drawing.Point(4, 215);
+            this.DriversBtn.Location = new System.Drawing.Point(4, 186);
             this.DriversBtn.Margin = new System.Windows.Forms.Padding(4);
             this.DriversBtn.Name = "DriversBtn";
             this.DriversBtn.Size = new System.Drawing.Size(275, 54);
@@ -146,7 +146,7 @@
             // 
             // DashboardBtn
             // 
-            this.DashboardBtn.Location = new System.Drawing.Point(4, 154);
+            this.DashboardBtn.Location = new System.Drawing.Point(4, 124);
             this.DashboardBtn.Margin = new System.Windows.Forms.Padding(4);
             this.DashboardBtn.Name = "DashboardBtn";
             this.DashboardBtn.Size = new System.Drawing.Size(275, 54);

@@ -72,12 +72,15 @@
             // 
             // dataGridViewLearners
             // 
+            this.dataGridViewLearners.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewLearners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewLearners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLearners.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewLearners.Name = "dataGridViewLearners";
             this.dataGridViewLearners.RowHeadersWidth = 51;
             this.dataGridViewLearners.RowTemplate.Height = 24;
-            this.dataGridViewLearners.Size = new System.Drawing.Size(1242, 228);
+            this.dataGridViewLearners.Size = new System.Drawing.Size(1167, 228);
             this.dataGridViewLearners.TabIndex = 0;
             this.dataGridViewLearners.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLearners_CellContentClick);
             this.dataGridViewLearners.SelectionChanged += new System.EventHandler(this.dataGridViewLearners_SelectionChanged);
@@ -392,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1276, 560);
+            this.ClientSize = new System.Drawing.Size(1191, 690);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.updateBtn);

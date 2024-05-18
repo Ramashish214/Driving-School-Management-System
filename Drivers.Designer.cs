@@ -53,12 +53,15 @@
             // 
             // dataGridViewDriver
             // 
+            this.dataGridViewDriver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewDriver.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDriver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDriver.Location = new System.Drawing.Point(16, 15);
             this.dataGridViewDriver.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDriver.Name = "dataGridViewDriver";
             this.dataGridViewDriver.RowHeadersWidth = 51;
-            this.dataGridViewDriver.Size = new System.Drawing.Size(1035, 319);
+            this.dataGridViewDriver.Size = new System.Drawing.Size(1162, 319);
             this.dataGridViewDriver.TabIndex = 0;
             this.dataGridViewDriver.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewDriver.SelectionChanged += new System.EventHandler(this.dataGridViewDriver_SelectionChanged);
@@ -259,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 619);
+            this.ClientSize = new System.Drawing.Size(1191, 690);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.updateBtn);

@@ -30,6 +30,9 @@ namespace driving_school_management_system
             // Add the form to the panel and display it
             panelRight.Controls.Add(form);
             form.Show();
+
+            black.Visible = false;
+            white.Visible = false;
         }
 
         private void DashboardBtn_Click(object sender, EventArgs e)

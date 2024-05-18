@@ -93,9 +93,9 @@
             this.label1.Location = new System.Drawing.Point(58, 416);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 16);
+            this.label1.Size = new System.Drawing.Size(41, 16);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Id";
+            this.label1.Text = "ID No";
             // 
             // label2
             // 
@@ -275,12 +275,12 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(744, 428);
+            this.label9.Location = new System.Drawing.Point(725, 428);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(18, 16);
+            this.label9.Size = new System.Drawing.Size(41, 16);
             this.label9.TabIndex = 24;
-            this.label9.Text = "Id";
+            this.label9.Text = "ID No";
             // 
             // Drivers
             // 

@@ -44,6 +44,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(34)))), ((int)(((byte)(11)))));
             this.panel1.Controls.Add(this.paymentBtn);
             this.panel1.Controls.Add(this.white);
             this.panel1.Controls.Add(this.black);
@@ -62,13 +63,16 @@
             // 
             // paymentBtn
             // 
+            this.paymentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(105)))), ((int)(((byte)(49)))));
+            this.paymentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.paymentBtn.Location = new System.Drawing.Point(4, 434);
             this.paymentBtn.Margin = new System.Windows.Forms.Padding(4);
             this.paymentBtn.Name = "paymentBtn";
             this.paymentBtn.Size = new System.Drawing.Size(275, 54);
             this.paymentBtn.TabIndex = 8;
             this.paymentBtn.Text = "Payments";
-            this.paymentBtn.UseVisualStyleBackColor = true;
+            this.paymentBtn.UseVisualStyleBackColor = false;
             this.paymentBtn.Click += new System.EventHandler(this.paymentBtn_Click);
             // 
             // white
@@ -102,57 +106,72 @@
             // 
             // ScheduleBtn
             // 
+            this.ScheduleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(105)))), ((int)(((byte)(49)))));
+            this.ScheduleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScheduleBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.ScheduleBtn.Location = new System.Drawing.Point(4, 372);
             this.ScheduleBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ScheduleBtn.Name = "ScheduleBtn";
             this.ScheduleBtn.Size = new System.Drawing.Size(275, 54);
             this.ScheduleBtn.TabIndex = 4;
             this.ScheduleBtn.Text = "Schedule";
-            this.ScheduleBtn.UseVisualStyleBackColor = true;
+            this.ScheduleBtn.UseVisualStyleBackColor = false;
             this.ScheduleBtn.Click += new System.EventHandler(this.ScheduleBtn_Click);
             // 
             // VehiclesBtn
             // 
+            this.VehiclesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(105)))), ((int)(((byte)(49)))));
+            this.VehiclesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VehiclesBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.VehiclesBtn.Location = new System.Drawing.Point(4, 310);
             this.VehiclesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.VehiclesBtn.Name = "VehiclesBtn";
             this.VehiclesBtn.Size = new System.Drawing.Size(275, 54);
             this.VehiclesBtn.TabIndex = 3;
             this.VehiclesBtn.Text = "Vehicles";
-            this.VehiclesBtn.UseVisualStyleBackColor = true;
+            this.VehiclesBtn.UseVisualStyleBackColor = false;
             this.VehiclesBtn.Click += new System.EventHandler(this.VehiclesBtn_Click);
             // 
             // LearnersBtn
             // 
+            this.LearnersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(105)))), ((int)(((byte)(49)))));
+            this.LearnersBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LearnersBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.LearnersBtn.Location = new System.Drawing.Point(4, 248);
             this.LearnersBtn.Margin = new System.Windows.Forms.Padding(4);
             this.LearnersBtn.Name = "LearnersBtn";
             this.LearnersBtn.Size = new System.Drawing.Size(275, 54);
             this.LearnersBtn.TabIndex = 2;
             this.LearnersBtn.Text = "Learners";
-            this.LearnersBtn.UseVisualStyleBackColor = true;
+            this.LearnersBtn.UseVisualStyleBackColor = false;
             this.LearnersBtn.Click += new System.EventHandler(this.LearnersBtn_Click);
             // 
             // DriversBtn
             // 
+            this.DriversBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(105)))), ((int)(((byte)(49)))));
+            this.DriversBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DriversBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.DriversBtn.Location = new System.Drawing.Point(4, 186);
             this.DriversBtn.Margin = new System.Windows.Forms.Padding(4);
             this.DriversBtn.Name = "DriversBtn";
             this.DriversBtn.Size = new System.Drawing.Size(275, 54);
             this.DriversBtn.TabIndex = 1;
             this.DriversBtn.Text = "Drivers";
-            this.DriversBtn.UseVisualStyleBackColor = true;
+            this.DriversBtn.UseVisualStyleBackColor = false;
             this.DriversBtn.Click += new System.EventHandler(this.DriversBtn_Click);
             // 
             // DashboardBtn
             // 
+            this.DashboardBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(105)))), ((int)(((byte)(49)))));
+            this.DashboardBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashboardBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DashboardBtn.Location = new System.Drawing.Point(4, 124);
             this.DashboardBtn.Margin = new System.Windows.Forms.Padding(4);
             this.DashboardBtn.Name = "DashboardBtn";
             this.DashboardBtn.Size = new System.Drawing.Size(275, 54);
             this.DashboardBtn.TabIndex = 0;
             this.DashboardBtn.Text = "Dashboard";
-            this.DashboardBtn.UseVisualStyleBackColor = true;
+            this.DashboardBtn.UseVisualStyleBackColor = false;
             this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
             // 
             // panelRight

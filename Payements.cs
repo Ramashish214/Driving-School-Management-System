@@ -221,5 +221,10 @@ namespace driving_school_management_system
                 MessageBox.Show("Error saving textbox values: " + ex.Message);
             }
         }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

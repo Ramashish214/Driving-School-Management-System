@@ -96,9 +96,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(60, 433);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 16);
+            this.label1.Size = new System.Drawing.Size(41, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Id";
+            this.label1.Text = "ID No";
             // 
             // Browse
             // 
@@ -300,9 +300,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(709, 453);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(18, 16);
+            this.label9.Size = new System.Drawing.Size(41, 16);
             this.label9.TabIndex = 24;
-            this.label9.Text = "Id";
+            this.label9.Text = "ID No";
             // 
             // textBox6
             // 
@@ -442,6 +442,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(136)))), ((int)(((byte)(78)))));
             this.ClientSize = new System.Drawing.Size(1191, 690);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.button4);

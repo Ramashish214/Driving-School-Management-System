@@ -37,7 +37,7 @@ namespace driving_school_management_system
                 SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Schedule WHERE ID = @ID", connection);
                 checkCmd.Parameters.AddWithValue("@ID", textBox2.Text);
                 int count = (int)checkCmd.ExecuteScalar();
-                if (textBox2.Text!="")
+                if (textBox1.Text!="")
                 {
                     if (count > 0)
                     {
@@ -186,6 +186,11 @@ namespace driving_school_management_system
         }
 
         private void Schedule_Load(object sender, EventArgs e)
+        {
+            textBox2.Visible = false;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

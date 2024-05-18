@@ -365,7 +365,7 @@
             // 
             this.deleteBtn.Location = new System.Drawing.Point(361, 420);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(75, 42);
+            this.deleteBtn.Size = new System.Drawing.Size(88, 41);
             this.deleteBtn.TabIndex = 34;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
@@ -383,9 +383,9 @@
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(631, 650);
+            this.searchBtn.Location = new System.Drawing.Point(626, 640);
             this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(75, 23);
+            this.searchBtn.Size = new System.Drawing.Size(88, 41);
             this.searchBtn.TabIndex = 36;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = true;

@@ -237,5 +237,10 @@ namespace driving_school_management_system
                 }
             }
         }
+
+        private void driverName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

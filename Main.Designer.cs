@@ -30,6 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.paymentBtn = new System.Windows.Forms.Button();
+            this.white = new System.Windows.Forms.Button();
+            this.black = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ScheduleBtn = new System.Windows.Forms.Button();
             this.VehiclesBtn = new System.Windows.Forms.Button();
@@ -37,8 +39,6 @@
             this.DriversBtn = new System.Windows.Forms.Button();
             this.DashboardBtn = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.black = new System.Windows.Forms.Button();
-            this.white = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             // 
             // paymentBtn
             // 
-            this.paymentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.paymentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.paymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.paymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.paymentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,6 +77,26 @@
             this.paymentBtn.UseVisualStyleBackColor = false;
             this.paymentBtn.Click += new System.EventHandler(this.paymentBtn_Click);
             // 
+            // white
+            // 
+            this.white.Location = new System.Drawing.Point(164, 537);
+            this.white.Name = "white";
+            this.white.Size = new System.Drawing.Size(75, 23);
+            this.white.TabIndex = 7;
+            this.white.Text = "white";
+            this.white.UseVisualStyleBackColor = true;
+            this.white.Click += new System.EventHandler(this.white_Click);
+            // 
+            // black
+            // 
+            this.black.Location = new System.Drawing.Point(42, 537);
+            this.black.Name = "black";
+            this.black.Size = new System.Drawing.Size(75, 23);
+            this.black.TabIndex = 6;
+            this.black.Text = "black";
+            this.black.UseVisualStyleBackColor = true;
+            this.black.Click += new System.EventHandler(this.black_Click);
+            // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -88,7 +108,7 @@
             // 
             // ScheduleBtn
             // 
-            this.ScheduleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.ScheduleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ScheduleBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.ScheduleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScheduleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -104,7 +124,7 @@
             // 
             // VehiclesBtn
             // 
-            this.VehiclesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.VehiclesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.VehiclesBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.VehiclesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VehiclesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,7 +140,7 @@
             // 
             // LearnersBtn
             // 
-            this.LearnersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.LearnersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.LearnersBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.LearnersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LearnersBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,7 +156,7 @@
             // 
             // DriversBtn
             // 
-            this.DriversBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.DriversBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.DriversBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.DriversBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DriversBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -152,7 +172,7 @@
             // 
             // DashboardBtn
             // 
-            this.DashboardBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.DashboardBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.DashboardBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.DashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashboardBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,26 +194,6 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(1209, 737);
             this.panelRight.TabIndex = 2;
-            // 
-            // black
-            // 
-            this.black.Location = new System.Drawing.Point(42, 537);
-            this.black.Name = "black";
-            this.black.Size = new System.Drawing.Size(75, 23);
-            this.black.TabIndex = 6;
-            this.black.Text = "black";
-            this.black.UseVisualStyleBackColor = true;
-            this.black.Click += new System.EventHandler(this.black_Click);
-            // 
-            // white
-            // 
-            this.white.Location = new System.Drawing.Point(164, 537);
-            this.white.Name = "white";
-            this.white.Size = new System.Drawing.Size(75, 23);
-            this.white.TabIndex = 7;
-            this.white.Text = "white";
-            this.white.UseVisualStyleBackColor = true;
-            this.white.Click += new System.EventHandler(this.white_Click);
             // 
             // Main
             // 

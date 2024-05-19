@@ -153,7 +153,7 @@
             // 
             // searchBtn
             // 
-            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.searchBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchBtn.Location = new System.Drawing.Point(373, 194);
@@ -220,7 +220,7 @@
             // 
             // calculateBtn
             // 
-            this.calculateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.calculateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.calculateBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.calculateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.calculateBtn.Location = new System.Drawing.Point(373, 390);
@@ -233,7 +233,7 @@
             // 
             // printBtn
             // 
-            this.printBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.printBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.printBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.printBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.printBtn.Location = new System.Drawing.Point(186, 439);
@@ -250,10 +250,10 @@
             // 
             // updateBtn
             // 
-            this.updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateBtn.Location = new System.Drawing.Point(814, 306);
+            this.updateBtn.Location = new System.Drawing.Point(716, 302);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(88, 41);
             this.updateBtn.TabIndex = 20;
@@ -263,14 +263,14 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(773, 204);
+            this.textBox9.Location = new System.Drawing.Point(675, 200);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(160, 23);
             this.textBox9.TabIndex = 21;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(773, 232);
+            this.textBox10.Location = new System.Drawing.Point(675, 228);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(160, 23);
             this.textBox10.TabIndex = 22;
@@ -278,7 +278,7 @@
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(773, 260);
+            this.textBox11.Location = new System.Drawing.Point(675, 256);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(160, 23);
             this.textBox11.TabIndex = 23;
@@ -288,7 +288,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(667, 207);
+            this.label9.Location = new System.Drawing.Point(569, 203);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 17);
             this.label9.TabIndex = 24;
@@ -299,7 +299,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(667, 235);
+            this.label10.Location = new System.Drawing.Point(569, 231);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 17);
             this.label10.TabIndex = 25;
@@ -310,7 +310,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(667, 263);
+            this.label11.Location = new System.Drawing.Point(569, 259);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 17);
             this.label11.TabIndex = 26;
@@ -319,21 +319,21 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(13, 9);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(372, 85);
+            this.label12.Size = new System.Drawing.Size(331, 76);
             this.label12.TabIndex = 40;
             this.label12.Text = "Payments";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(383, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(295, -9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(116, 111);
+            this.pictureBox1.Size = new System.Drawing.Size(117, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;

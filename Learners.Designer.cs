@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Learners));
             this.dataGridViewLearners = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -88,14 +88,14 @@
             this.dataGridViewLearners.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.dataGridViewLearners.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewLearners.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLearners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLearners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewLearners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLearners.Location = new System.Drawing.Point(13, 124);
             this.dataGridViewLearners.Name = "dataGridViewLearners";
@@ -119,14 +119,14 @@
             // 
             // Browse
             // 
-            this.Browse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.Browse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Browse.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.Browse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Browse.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Browse.ForeColor = System.Drawing.Color.White;
-            this.Browse.Location = new System.Drawing.Point(1019, 475);
+            this.Browse.Location = new System.Drawing.Point(968, 479);
             this.Browse.Name = "Browse";
-            this.Browse.Size = new System.Drawing.Size(75, 23);
+            this.Browse.Size = new System.Drawing.Size(88, 41);
             this.Browse.TabIndex = 2;
             this.Browse.Text = "Browse";
             this.Browse.UseVisualStyleBackColor = false;
@@ -167,7 +167,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(708, 481);
+            this.label4.Location = new System.Drawing.Point(656, 491);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 17);
             this.label4.TabIndex = 6;
@@ -178,7 +178,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(708, 509);
+            this.label5.Location = new System.Drawing.Point(655, 547);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 17);
             this.label5.TabIndex = 7;
@@ -189,7 +189,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(708, 537);
+            this.label6.Location = new System.Drawing.Point(656, 602);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 17);
             this.label6.TabIndex = 8;
@@ -219,35 +219,35 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(823, 478);
+            this.textBox3.Location = new System.Drawing.Point(770, 488);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(175, 22);
             this.textBox3.TabIndex = 12;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(823, 506);
+            this.textBox4.Location = new System.Drawing.Point(770, 547);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(175, 22);
             this.textBox4.TabIndex = 13;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(823, 534);
+            this.textBox5.Location = new System.Drawing.Point(770, 599);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(175, 22);
             this.textBox5.TabIndex = 14;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1019, 504);
+            this.button2.Location = new System.Drawing.Point(968, 538);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(88, 41);
             this.button2.TabIndex = 16;
             this.button2.Text = "Browse";
             this.button2.UseVisualStyleBackColor = false;
@@ -255,14 +255,14 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1019, 533);
+            this.button3.Location = new System.Drawing.Point(967, 592);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(89, 40);
             this.button3.TabIndex = 17;
             this.button3.Text = "Browse";
             this.button3.UseVisualStyleBackColor = false;
@@ -270,7 +270,7 @@
             // 
             // addBtn
             // 
-            this.addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.addBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -338,14 +338,14 @@
             // 
             // updateIdPDFBtn
             // 
-            this.updateIdPDFBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.updateIdPDFBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.updateIdPDFBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.updateIdPDFBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateIdPDFBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateIdPDFBtn.ForeColor = System.Drawing.Color.White;
-            this.updateIdPDFBtn.Location = new System.Drawing.Point(1100, 475);
+            this.updateIdPDFBtn.Location = new System.Drawing.Point(1087, 479);
             this.updateIdPDFBtn.Name = "updateIdPDFBtn";
-            this.updateIdPDFBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateIdPDFBtn.Size = new System.Drawing.Size(88, 41);
             this.updateIdPDFBtn.TabIndex = 23;
             this.updateIdPDFBtn.Text = "Upload";
             this.updateIdPDFBtn.UseVisualStyleBackColor = false;
@@ -356,7 +356,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(709, 453);
+            this.label9.Location = new System.Drawing.Point(656, 450);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 17);
             this.label9.TabIndex = 24;
@@ -364,35 +364,35 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(823, 450);
+            this.textBox6.Location = new System.Drawing.Point(770, 447);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(175, 22);
             this.textBox6.TabIndex = 25;
             // 
             // updateBCPDFBtn
             // 
-            this.updateBCPDFBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.updateBCPDFBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.updateBCPDFBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.updateBCPDFBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBCPDFBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBCPDFBtn.ForeColor = System.Drawing.Color.White;
-            this.updateBCPDFBtn.Location = new System.Drawing.Point(1100, 504);
+            this.updateBCPDFBtn.Location = new System.Drawing.Point(1087, 538);
             this.updateBCPDFBtn.Name = "updateBCPDFBtn";
-            this.updateBCPDFBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateBCPDFBtn.Size = new System.Drawing.Size(88, 41);
             this.updateBCPDFBtn.TabIndex = 26;
             this.updateBCPDFBtn.Text = "Upload";
             this.updateBCPDFBtn.UseVisualStyleBackColor = false;
             // 
             // updateMRPDFBtn
             // 
-            this.updateMRPDFBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.updateMRPDFBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.updateMRPDFBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.updateMRPDFBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateMRPDFBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateMRPDFBtn.ForeColor = System.Drawing.Color.White;
-            this.updateMRPDFBtn.Location = new System.Drawing.Point(1100, 533);
+            this.updateMRPDFBtn.Location = new System.Drawing.Point(1087, 592);
             this.updateMRPDFBtn.Name = "updateMRPDFBtn";
-            this.updateMRPDFBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateMRPDFBtn.Size = new System.Drawing.Size(88, 40);
             this.updateMRPDFBtn.TabIndex = 27;
             this.updateMRPDFBtn.Text = "Upload";
             this.updateMRPDFBtn.UseVisualStyleBackColor = false;
@@ -435,7 +435,7 @@
             // 
             // deleteBtn
             // 
-            this.deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.deleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -450,7 +450,7 @@
             // 
             // updateBtn
             // 
-            this.updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.updateBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -465,7 +465,7 @@
             // 
             // searchBtn
             // 
-            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.searchBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -488,12 +488,12 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(13, 9);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(335, 85);
+            this.label12.Size = new System.Drawing.Size(295, 76);
             this.label12.TabIndex = 38;
             this.label12.Text = "Learners";
             // 
@@ -509,7 +509,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(782, 384);
+            this.button4.Location = new System.Drawing.Point(715, 384);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(188, 28);
             this.button4.TabIndex = 40;
@@ -531,7 +531,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(355, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(355, 1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(117, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

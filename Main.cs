@@ -19,7 +19,7 @@ namespace driving_school_management_system
 
         private void LoadForm(Form form)
         {
-            // Clear existing controls from the panel
+            // clear existing controls from the panel
             panelRight.Controls.Clear();
 
             // make styles in loading form

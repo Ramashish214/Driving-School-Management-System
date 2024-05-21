@@ -22,135 +22,51 @@ namespace driving_school_management_system
             // Clear existing controls from the panel
             panelRight.Controls.Clear();
 
-            // Set the properties of the form being loaded
+            // make styles in loading form
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
 
-            // Add the form to the panel and display it
+            // display correct form in panel
             panelRight.Controls.Add(form);
             form.Show();
-
-            black.Visible = false;
-            white.Visible = false;
+           
         }
 
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
-            LoadForm(new Dashboard());
+            LoadForm(new Dashboard()); // load dashborad form to right panel
         }
 
         private void DriversBtn_Click(object sender, EventArgs e)
         {
-            LoadForm(new Drivers());
+            LoadForm(new Drivers()); // load drivers form to right panel
         }
 
         private void LearnersBtn_Click(object sender, EventArgs e)
         {
-            LoadForm(new Learners());
+            LoadForm(new Learners()); // load learners form to right panel
         }
 
         private void VehiclesBtn_Click(object sender, EventArgs e)
         {
-            LoadForm(new Vehicles());
+            LoadForm(new Vehicles()); // load vehicles form to right panel
         }
 
         private void ScheduleBtn_Click(object sender, EventArgs e)
         {
-            LoadForm(new Schedule());
+            LoadForm(new Schedule()); // load schedule form to right panel
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            LoadForm(new Dashboard());
-        }
-
-        /*private void SetBlackTheme()
-        {
-            BackColor = Color.Black;
-            ForeColor = Color.White;
-            foreach (Control control in Controls)
-            {
-                control.BackColor = Color.Black;
-                control.ForeColor = Color.White;
-            }
-        }
-
-        private void SetWhiteTheme()
-        {
-            BackColor = Color.White;
-            ForeColor = Color.Black;
-            foreach (Control control in Controls)
-            {
-                control.BackColor = Color.White;
-                control.ForeColor = Color.Black;
-            }
-        }*/
-
-        private void black_Click(object sender, EventArgs e)
-        {
-            //SetBlackTheme();
-        }
-
-        private void white_Click(object sender, EventArgs e)
-        {
-            //SetWhiteTheme();
-        }
+            LoadForm(new Dashboard()); // load dashborad to right panel when starting window
+        }   
 
         private void paymentBtn_Click(object sender, EventArgs e)
         {
-            LoadForm(new Payements());
-        }
-        /*
-private Color _backgroundColor;
-private Color _foregroundColor;
-
-private void SetBlackTheme()
-{
-   _backgroundColor = Color.Black;
-   _foregroundColor = Color.White;
-   ApplyTheme(this.Controls);
-   // Apply theme to forms in the right panel
-   ApplyThemeToRightPanel();
-}
-
-private void SetWhiteTheme()
-{
-   _backgroundColor = Color.White;
-   _foregroundColor = Color.Black;
-   ApplyTheme(this.Controls);
-   // Apply theme to forms in the right panel
-   ApplyThemeToRightPanel();
-}
-
-private void ApplyTheme(Control.ControlCollection controls)
-{
-   foreach (Control control in controls)
-   {
-       control.BackColor = _backgroundColor;
-       control.ForeColor = _foregroundColor;
-
-       if (control.HasChildren)
-       {
-           ApplyTheme(control.Controls);
-       }
-   }
-}
-
-private void ApplyThemeToRightPanel()
-{
-   foreach (Control control in panelRight.Controls)
-   {
-       if (control is Form)
-       {
-           control.BackColor = _backgroundColor;
-           control.ForeColor = _foregroundColor;
-
-           // Apply theme to controls within the form
-           ApplyTheme(control.Controls);
-       }
-   }
-}*/
+            LoadForm(new Payements()); // load payements form to right panel
+        }       
 
     }
 }

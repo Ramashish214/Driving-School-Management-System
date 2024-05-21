@@ -30,8 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.paymentBtn = new System.Windows.Forms.Button();
-            this.white = new System.Windows.Forms.Button();
-            this.black = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ScheduleBtn = new System.Windows.Forms.Button();
             this.VehiclesBtn = new System.Windows.Forms.Button();
@@ -46,8 +44,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Controls.Add(this.paymentBtn);
-            this.panel1.Controls.Add(this.white);
-            this.panel1.Controls.Add(this.black);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.ScheduleBtn);
             this.panel1.Controls.Add(this.VehiclesBtn);
@@ -76,26 +72,6 @@
             this.paymentBtn.Text = "Payments";
             this.paymentBtn.UseVisualStyleBackColor = false;
             this.paymentBtn.Click += new System.EventHandler(this.paymentBtn_Click);
-            // 
-            // white
-            // 
-            this.white.Location = new System.Drawing.Point(164, 537);
-            this.white.Name = "white";
-            this.white.Size = new System.Drawing.Size(75, 23);
-            this.white.TabIndex = 7;
-            this.white.Text = "white";
-            this.white.UseVisualStyleBackColor = true;
-            this.white.Click += new System.EventHandler(this.white_Click);
-            // 
-            // black
-            // 
-            this.black.Location = new System.Drawing.Point(42, 537);
-            this.black.Name = "black";
-            this.black.Size = new System.Drawing.Size(75, 23);
-            this.black.TabIndex = 6;
-            this.black.Text = "black";
-            this.black.UseVisualStyleBackColor = true;
-            this.black.Click += new System.EventHandler(this.black_Click);
             // 
             // panel2
             // 
@@ -224,7 +200,5 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Button paymentBtn;
-        private System.Windows.Forms.Button white;
-        private System.Windows.Forms.Button black;
     }
 }

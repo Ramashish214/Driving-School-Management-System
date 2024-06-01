@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace driving_school_management_system
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
+        }
+
+        private void LoginBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main form = new Main();
+            form.Show();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

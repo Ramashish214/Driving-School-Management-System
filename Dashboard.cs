@@ -13,9 +13,9 @@ namespace driving_school_management_system
 {
     public partial class Dashboard : Form
     {
-        //connection string to database
-        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbSystemDSMS.mdf;Integrated Security=True");
-        
+        //connection string to database        
+        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
+
         public Dashboard()
         {
             InitializeComponent();
@@ -23,8 +23,8 @@ namespace driving_school_management_system
 
         private void Dashboard_Load(object sender, EventArgs e) // form loading with these functions
         {
-            UpdateCounts();
-            LoadTomorrowsEventsToListView();
+            UpdateCounts();           
+            LoadNext7DaysEventsToDataGridView();
         }
 
         private void UpdateCounts()
@@ -59,41 +59,56 @@ namespace driving_school_management_system
                 connection.Close();
             }
         }
-
-        private void LoadTomorrowsEventsToListView()
+                   
+        private void LoadNext7DaysEventsToDataGridView()
         {
-            // get tomorrow's date
-            DateTime tomorrow = DateTime.Today.AddDays(1);
+            // get today's date
+            DateTime today = DateTime.Today;
+            // get the date 7 days from now
+            DateTime nextWeek = DateTime.Today.AddDays(7);
 
-            // store events for tomorrow
-            List<string> events = GetEventsForDate(tomorrow);
+            // store events for the next 7 days
+            List<(DateTime, string)> events = GetEventsForDateRange(today, nextWeek);
 
-            // display events in ListView
-            listView1.Items.Clear();
-            foreach (string ev in events)
+            // create a dataTable to hold the events
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Date", typeof(DateTime));
+            dataTable.Columns.Add("Details", typeof(string));
+
+            
+            foreach (var (date, details) in events)
             {
-                listView1.Items.Add(ev);
+                dataTable.Rows.Add(date, details);
             }
-        }
-        public List<string> GetEventsForDate(DateTime selectedDate)
-        {
-            List<string> events = new List<string>();
 
-            //get schedule details
-            SqlCommand checkCmd = new SqlCommand("SELECT Details FROM Schedule WHERE Date = @SelectedDate", connection);
-            checkCmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
+            // bind the dataTable to the dataGridView
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Columns["Date"].Width = 100;
+        }
+
+        public List<(DateTime, string)> GetEventsForDateRange(DateTime startDate, DateTime endDate)
+        {
+            List<(DateTime, string)> events = new List<(DateTime, string)>();
+
+            // get schedule details for the next 7 days
+            SqlCommand checkCmd = new SqlCommand("SELECT Date, Details FROM Schedule WHERE Date >= @StartDate AND Date < @EndDate", connection);
+            checkCmd.Parameters.AddWithValue("@StartDate", startDate);
+            checkCmd.Parameters.AddWithValue("@EndDate", endDate);
 
             connection.Open();
             SqlDataReader reader = checkCmd.ExecuteReader();
 
             while (reader.Read())
             {
-                events.Add(reader["Details"].ToString());
+                DateTime eventDate = Convert.ToDateTime(reader["Date"]);
+                string details = reader["Details"].ToString();
+                events.Add((eventDate, details));
             }
 
             connection.Close();
             return events;
         }
+
 
     }
 }

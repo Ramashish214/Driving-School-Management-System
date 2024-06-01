@@ -19,8 +19,16 @@ namespace driving_school_management_system
             InitializeComponent();
         }
 
-        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbSystemDSMS.mdf;Integrated Security=True");
+        private void Drivers_Load(object sender, EventArgs e)
+        {
+            BindData();
+            LoadVehicleNos();
+        }
 
+        // connection to database      
+        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
+
+        //load exisiting data from database to dataGridView
         void BindData()
         {
             SqlCommand cmd = new SqlCommand("select * from Driver", connection);
@@ -30,7 +38,7 @@ namespace driving_school_management_system
             dataGridViewDriver.DataSource = dt;
         }
 
-        private void LoadVehicleNos()
+        private void LoadVehicleNos()  //load veheicle numbers to comboBox
         {
             try
             {
@@ -52,42 +60,32 @@ namespace driving_school_management_system
                 connection.Close();
             }
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Drivers_Load(object sender, EventArgs e)
-        {
-            BindData();
-            LoadVehicleNos();
-        }
-
+      
+        
         private void AddBtn_Click(object sender, EventArgs e)
         {
 
             if (string.IsNullOrWhiteSpace(driverId.Text))
             {
-                MessageBox.Show("Please enter a value for the driver ID.");
-                return; // Exit the event handler
+                MessageBox.Show("Please enter the driver ID.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // exit the event handler
             }
 
             connection.Open();
 
-            // Check if the primary key already exists
+            // check if the primary key already exists
             SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Driver WHERE Id = @PrimaryKeyValue", connection);
             checkCmd.Parameters.AddWithValue("@PrimaryKeyValue", driverId.Text);
 
             int existingCount = (int)checkCmd.ExecuteScalar();
             if (existingCount > 0)
             {
-                MessageBox.Show("Primary key already exists. Please enter a different value.");
+                MessageBox.Show("Driver ID already exists.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 connection.Close();
-                return; // Exit the event handler
+                return; // exit the event handler
             }
 
-            // Proceed with insertion if the primary key does not exist
+            // proceed with insertion if the primary key does not exist
             
 
             try
@@ -104,24 +102,25 @@ namespace driving_school_management_system
                 MessageBox.Show("Inserted");
                 BindData();
             }
-            catch (SqlException ex)
+            catch (Exception)
             {
-                // Handle SQL exceptions
-                MessageBox.Show("An error occurred while inserting data: " + ex.Message);
+                //for sql exceptions
+                MessageBox.Show("An error occurred while inserting data");
             }
             finally
             {
                 connection.Close();
             }
+
             BindData();
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            // Check if the driverId TextBox is not empty
+            // check if the driverId TextBox is not empty
             if (!string.IsNullOrEmpty(driverId.Text))
             {
-                // Confirm with the user
+                // confirm with the delete
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
@@ -132,20 +131,23 @@ namespace driving_school_management_system
                         SqlCommand cmd = new SqlCommand("DELETE FROM Driver WHERE Id = @ID", connection);
                         cmd.Parameters.AddWithValue("@ID", driverId.Text);
                         cmd.ExecuteNonQuery();
-                        connection.Close();
-                        MessageBox.Show("Deleted");
+                        //connection.Close();
+                        MessageBox.Show("Deleted", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         BindData();
                     }
-                    catch (SqlException ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show("Error deleting record: " + ex.Message);
+                        MessageBox.Show("An error occurred while deleting record");
+                    }
+                    finally {
+                        connection.Close();
                     }
                 }
-                // If user clicks No, do nothing
+                
             }
             else
             {
-                MessageBox.Show("Please enter an ID to delete.");
+                MessageBox.Show("Please enter driver ID to delete.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -154,8 +156,7 @@ namespace driving_school_management_system
             if (dataGridViewDriver.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dataGridViewDriver.SelectedRows[0];
-
-                // Assuming txtBox1, txtBox2, txtBox3 are your TextBox controls
+                
                 driverId.Text = selectedRow.Cells["Id"].Value.ToString();
                 driverName.Text = selectedRow.Cells["Driver Name"].Value.ToString();
                 licenseNo.Text = selectedRow.Cells["License No"].Value.ToString();
@@ -163,29 +164,30 @@ namespace driving_school_management_system
                 bloodType.Text = selectedRow.Cells["Blood Type"].Value.ToString();
                 comboBox1.Text = selectedRow.Cells["Vehicle Incharge"].Value.ToString();
                 textBox1.Text = selectedRow.Cells["Contact No"].Value.ToString();
-                // Add more lines if you have more text boxes and columns
+                
             }
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            connection.Open();
+            
 
             try
             {
-                // Check if the record exists
+                connection.Open();
+                // check if the record exists
                 SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Driver WHERE Id = @PrimaryKeyValue", connection);
                 checkCmd.Parameters.AddWithValue("@PrimaryKeyValue", driverId.Text);
                 int existingCount = (int)checkCmd.ExecuteScalar();
 
                 if (existingCount == 0)
                 {
-                    MessageBox.Show("Record does not exist. Please enter a valid ID.");
+                    MessageBox.Show("Record does not exist. Please enter a valid ID.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     connection.Close();
-                    return; // Exit the event handler
+                    return; // exit the event handler
                 }
 
-                // Proceed with the update
+                // proceed with the update
                 SqlCommand updateCmd = new SqlCommand("UPDATE Driver SET [Driver Name] = @Value2, [License No] = @Value3, [License Type] = @Value4, [Blood Type] = @Value5, [Vehicle Incharge] = @Value6, [Contact No] = @Value7 WHERE Id = @PrimaryKeyValue", connection);
                 updateCmd.Parameters.AddWithValue("@PrimaryKeyValue", driverId.Text);
                 updateCmd.Parameters.AddWithValue("@Value2", driverName.Text);
@@ -196,12 +198,12 @@ namespace driving_school_management_system
                 updateCmd.Parameters.AddWithValue("@Value7", textBox1.Text);
                 updateCmd.ExecuteNonQuery();
 
-                MessageBox.Show("Updated");
+                MessageBox.Show("Updated", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BindData();
             }
-            catch (SqlException ex)
+            catch (Exception)
             {
-                MessageBox.Show("An error occurred while updating data: " + ex.Message);
+                MessageBox.Show("An error occurred while updating data.");
             }
             finally
             {
@@ -211,81 +213,42 @@ namespace driving_school_management_system
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            // Check if the text box has a value
+            // check if the text box has a value
             if (string.IsNullOrWhiteSpace(textBox2.Text))
             {
-                // Show a message or perform any action to notify the user
-                MessageBox.Show("Please enter a search term.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return; // Exit the event handler
+                // show a message to notify the user
+                MessageBox.Show("Please enter the driver ID.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // exit the event handler
             }
 
-            // Proceed with the search operation
+            // proceed with the search operation
             string searchText = textBox2.Text.Trim();
             dataGridViewDriver.ClearSelection();
-            // Iterate through each row in the DataGridView
-            foreach (DataGridViewRow row in dataGridViewDriver.Rows)
-            {
-                // Assuming the unique identifier is in the first column, adjust column index if necessary
-                string cellValue = row.Cells[0].Value.ToString();
 
-                // If the cell value matches the search text, select the row and exit the loop
-                if (cellValue.Equals(searchText, StringComparison.OrdinalIgnoreCase))
+            // iterate through each row in the DataGridView
+            var status = false;
+            if (status == false)
+            {
+                foreach (DataGridViewRow row in dataGridViewDriver.Rows)
                 {
-                    row.Selected = true;
-                    dataGridViewDriver.FirstDisplayedScrollingRowIndex = row.Index; // Scroll to the selected row
-                    break;
+
+                    string cellValue = row.Cells[0].Value.ToString();
+
+
+                    if (cellValue.Equals(searchText, StringComparison.OrdinalIgnoreCase))
+                    {
+                        row.Selected = true;
+                        dataGridViewDriver.FirstDisplayedScrollingRowIndex = row.Index; // go to the selected row
+                        status = true;
+                        break;
+                    }
+
                 }
             }
-        }
-
-        private void driverName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
+            if(status == false)
+            {
+                MessageBox.Show("Not Found", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }            
+        }       
     }
 }

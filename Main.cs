@@ -66,7 +66,11 @@ namespace driving_school_management_system
         private void paymentBtn_Click(object sender, EventArgs e)
         {
             LoadForm(new Payements()); // load payements form to right panel
-        }       
+        }
 
+        private void panelRight_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

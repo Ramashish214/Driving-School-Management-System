@@ -18,7 +18,7 @@ namespace driving_school_management_system
     public partial class Payements : Form
     {
 
-        private string filePath = Path.Combine(Environment.CurrentDirectory, "DrivingSchoolDetails.txt"); // Absolute path to the file to store the values
+        private string filePath = Path.Combine(Environment.CurrentDirectory, "DrivingSchoolDetails.txt"); // zbsolute path to the file to store the values
         private string descriptionFilePath = "ServiceDescription.txt";
 
         public Payements()
@@ -26,11 +26,11 @@ namespace driving_school_management_system
             InitializeComponent();
             
             printDocument1.PrintPage += printDocument1_PrintPage;
-            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A6", 413, 583);
+            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A6", 413, 583); // for print bill
         }
 
-        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbSystemDSMS.mdf;Integrated Security=True");
-
+        //connection string
+        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
         private void LoadTextBoxValues()
         {
             try
@@ -38,7 +38,7 @@ namespace driving_school_management_system
                 if (File.Exists(filePath))
                 {
                     string[] lines = File.ReadAllLines(filePath);
-                    if (lines.Length >= 3) // Make sure we have at least three lines in the file
+                    if (lines.Length >= 3) // load name, address and contact no
                     {
                         textBox9.Text = lines[0];
                         textBox10.Text = lines[1];
@@ -53,21 +53,16 @@ namespace driving_school_management_system
         }
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            // Check if the text box has a value
+            // check if the text box has a value
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Please enter a search term.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please enter a search term.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             string searchText = textBox1.Text.Trim();
-
-        
-
-            
-                // Open the connection
-            connection.Open();
-
-             
+                 
+            //open the connection
+            connection.Open();             
                 
             SqlCommand command = new SqlCommand("SELECT * FROM Learner WHERE Id = @SearchText", connection);
                
@@ -76,9 +71,9 @@ namespace driving_school_management_system
 
             using (SqlDataReader reader = command.ExecuteReader())
             {
-                if (reader.Read()) // Check if a row is found
+                if (reader.Read()) // check if a row is found
                 {
-                    // Load details into textboxes
+                    // load details into textboxes
                     textBox2.Text = reader["Name"].ToString();
                     textBox3.Text = reader["Address"].ToString();
                     textBox4.Text = reader["Contact No"].ToString();
@@ -88,8 +83,8 @@ namespace driving_school_management_system
                 }
                 else
                 {
-                    // If no matching record is found, show a message
-                    MessageBox.Show("No record found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // if no matching record is found, show a message
+                    MessageBox.Show("No record found.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     connection.Close();
 
                 }
@@ -97,7 +92,7 @@ namespace driving_school_management_system
             }
         }
 
-        private void calculateBtn_Click(object sender, EventArgs e)
+        private void calculateBtn_Click(object sender, EventArgs e) // bill calculation funtion
         {
             if (!string.IsNullOrWhiteSpace(textBox6.Text) && !string.IsNullOrWhiteSpace(textBox7.Text))
             {
@@ -106,7 +101,7 @@ namespace driving_school_management_system
             }
             else
             {
-                MessageBox.Show("Enter Training Cost and Discount");
+                MessageBox.Show("Enter Training Cost and Discount", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -119,55 +114,55 @@ namespace driving_school_management_system
             int startX = 50;
             int startY = 50;
             int lineHeight = 25;
-            int rectanglePadding = 10; // Padding around the rectangles
+            int rectanglePadding = 10; // padding around the rectangles
 
-            // Define labels and textboxes array
+            // define labels and textboxes array
             Label[] labels = { label1, label2, label3, label4, label5, label6, label7, label8 };
             TextBox[] textBoxes = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8 };
 
-            // Driving school details
+            // driving school details
             string schoolName = textBox9.Text;
             string schoolAddress = textBox10.Text;
             string schoolContact = textBox11.Text;
             string description = File.ReadAllText(descriptionFilePath);
             description = description.Replace("🌟", "\u2605");
             
-            // Print driving school details at the top
+            // print driving school details at the top
             g.DrawString(schoolName, titleFont, brush, startX, startY);
             g.DrawString(schoolAddress, bodyFont, brush, startX, startY + lineHeight);
             g.DrawString(schoolContact, bodyFont, brush, startX, startY + 2 * lineHeight);
 
-            // Draw separator line
+            // draw separator line
             g.DrawLine(new Pen(Color.Black), startX, startY + 3 * lineHeight, e.MarginBounds.Right - startX, startY + 3 * lineHeight);
 
-            // Draw rectangles for two columns
+            // draw rectangles for two columns
             int columnWidth = (e.MarginBounds.Right - startX) / 2 - 2 * rectanglePadding;
             int rectangleHeight = 250;//labels.Length * 2 * lineHeight + 2 * rectanglePadding;
 
             Rectangle leftColumnRect = new Rectangle(startX, startY + 4 * lineHeight, columnWidth, rectangleHeight);
             Rectangle rightColumnRect = new Rectangle(startX + columnWidth + 2 * rectanglePadding, startY + 4 * lineHeight, columnWidth, rectangleHeight);
 
-            // Draw rectangles for two columns
+            // draw rectangles for two columns
             g.DrawRectangle(Pens.Black, leftColumnRect);
             g.DrawRectangle(Pens.Black, rightColumnRect);
 
-            // Print student details in the left column
+            // print student details in the left column
             PrintSection("Student Details", labels.Take(4).ToArray(), textBoxes.Take(4).ToArray(), startX + rectanglePadding, startY + 4 * lineHeight + rectanglePadding, lineHeight, columnWidth);
 
-            // Print course details in the right column
+            // print course details in the right column
             PrintSection("Training Details", labels.Skip(4).ToArray(), textBoxes.Skip(4).ToArray(), startX + columnWidth + 3 * rectanglePadding, startY + 4 * lineHeight + rectanglePadding, lineHeight, columnWidth);
 
             g.DrawString(description, bodyFont, brush, startX, 450);
 
-            // Set the PDF document size
+            // set the PDF document size
             e.PageSettings.PaperSize = new PaperSize("Custom", e.MarginBounds.Right - startX, startY + rectangleHeight + 4 * lineHeight);
 
-            // Print generated time and date at the bottom
+            // print generated time and date at the bottom
             string generatedDateTime = $"PDF Generated: {DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")} - L Tracker Plus";
             SizeF generatedDateTimeSize = g.MeasureString(generatedDateTime, bodyFont);
             g.DrawString(generatedDateTime, bodyFont, brush, startX, e.MarginBounds.Bottom - generatedDateTimeSize.Height);
 
-            // Helper method to print each section
+            // helper method to print each section
             void PrintSection(string sectionTitle, Label[] sectionLabels, TextBox[] sectionTextBoxes, int x, int y, int lineSpacing, int width)
             {
                 g.DrawString(sectionTitle, titleFont, brush, x, y);
@@ -181,7 +176,7 @@ namespace driving_school_management_system
                 }
             }
 
-            // Helper method to print each detail
+            // helper method to print each detail
             void PrintDetail(Graphics graphics, string label, string value, int x, ref int y, Font labelFont, Font valueFont, Brush color, int lineSpacing)
             {
                 graphics.DrawString(label, labelFont, color, x, y);
@@ -198,7 +193,7 @@ namespace driving_school_management_system
 
             if (printDialog.ShowDialog() == DialogResult.OK)
             {
-                // Start printing
+                // start printing
                 printDocument1.Print();
             }
         }
@@ -214,7 +209,7 @@ namespace driving_school_management_system
             {
                 string[] lines = { textBox9.Text, textBox10.Text, textBox11.Text };
                 File.WriteAllLines(filePath, lines);
-                MessageBox.Show("Updated Successfully");
+                MessageBox.Show("Updated Successfully", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -230,6 +225,53 @@ namespace driving_school_management_system
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // display confirmation message box
+            DialogResult result = MessageBox.Show("Are you sure you want to mark this payment as 'paid'?", "L Tracker Plus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // check if the user clicked Yes
+            if (result == DialogResult.Yes)
+            {
+               
+
+                try
+                {
+                    connection.Open();
+
+                    int id = int.Parse(textBox1.Text);
+
+                    string sql = "UPDATE Learner SET Payments = @PaymentStatus WHERE Id = @ID";
+
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.Parameters.AddWithValue("@PaymentStatus", "paid");
+                    command.Parameters.AddWithValue("@ID", id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Payment status updated to 'paid' for ID: " + id);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No rows updated. ID: " + id + " not found.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
+                }
+            }
         }
     }
 }

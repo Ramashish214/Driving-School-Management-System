@@ -247,7 +247,12 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Car",
-            "Van"});
+            "Van",
+            "Motor Bicyle",
+            "Bus",
+            "Lorry",
+            "Heavy Vehicles",
+            "Light Vehicles"});
             this.comboBox1.Location = new System.Drawing.Point(221, 443);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";

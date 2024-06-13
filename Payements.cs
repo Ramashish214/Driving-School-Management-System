@@ -241,8 +241,8 @@ namespace driving_school_management_system
                 {
                     connection.Open();
 
-                    int id = int.Parse(textBox1.Text);
-
+                    //int id = int.Parse(textBox1.Text);
+                    string id = textBox1.Text;
                     string sql = "UPDATE Learner SET Payments = @PaymentStatus WHERE Id = @ID";
 
                     SqlCommand command = new SqlCommand(sql, connection);

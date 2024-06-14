@@ -19,14 +19,14 @@ namespace driving_school_management_system
             InitializeComponent();
         }
         //database connection
-        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
-        
+        //SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
+        SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbSystemDSMS.mdf;Integrated Security=True");
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             string favoriteVehicle = textBox1.Text;
 
             // read the value from the text file
-            string savedFavoriteVehicle = File.ReadAllText("SecurityQuestion.txt").Trim();
+            string savedFavoriteVehicle = File.ReadAllText("SQ.txt").Trim();
 
             if (string.Equals(favoriteVehicle, savedFavoriteVehicle, StringComparison.OrdinalIgnoreCase))
             {               

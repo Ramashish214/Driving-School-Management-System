@@ -72,5 +72,11 @@ namespace driving_school_management_system
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            About form=new About(); // load about form
+            form.Show();
+        }
     }
 }

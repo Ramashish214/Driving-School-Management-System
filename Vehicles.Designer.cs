@@ -52,8 +52,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewVehicles
@@ -82,6 +87,7 @@
             this.dataGridViewVehicles.RowHeadersWidth = 51;
             this.dataGridViewVehicles.Size = new System.Drawing.Size(1162, 254);
             this.dataGridViewVehicles.TabIndex = 0;
+            this.dataGridViewVehicles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVehicles_CellContentClick);
             this.dataGridViewVehicles.SelectionChanged += new System.EventHandler(this.dataGridViewVehicles_SelectionChanged);
             // 
             // addBtn
@@ -103,9 +109,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(998, 583);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(187, 41);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.Size = new System.Drawing.Size(46, 17);
             this.label7.TabIndex = 17;
             this.label7.Text = "label7";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -117,7 +125,7 @@
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
-            this.deleteBtn.Location = new System.Drawing.Point(407, 404);
+            this.deleteBtn.Location = new System.Drawing.Point(489, 404);
             this.deleteBtn.Margin = new System.Windows.Forms.Padding(4);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(88, 41);
@@ -145,12 +153,12 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(13, 9);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(323, 85);
+            this.label12.Size = new System.Drawing.Size(284, 76);
             this.label12.TabIndex = 39;
             this.label12.Text = "Vehicles";
             // 
@@ -171,7 +179,7 @@
             this.vehicleNo.Location = new System.Drawing.Point(221, 413);
             this.vehicleNo.Margin = new System.Windows.Forms.Padding(4);
             this.vehicleNo.Name = "vehicleNo";
-            this.vehicleNo.Size = new System.Drawing.Size(160, 22);
+            this.vehicleNo.Size = new System.Drawing.Size(245, 22);
             this.vehicleNo.TabIndex = 2;
             // 
             // label2
@@ -239,11 +247,16 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Car",
-            "Van"});
+            "Van",
+            "Motor Bicyle",
+            "Bus",
+            "Lorry",
+            "Heavy Vehicles",
+            "Light Vehicles"});
             this.comboBox1.Location = new System.Drawing.Point(221, 443);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
+            this.comboBox1.Size = new System.Drawing.Size(245, 24);
             this.comboBox1.TabIndex = 9;
             // 
             // dateTimePicker1
@@ -251,7 +264,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(221, 475);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(245, 22);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // dateTimePicker2
@@ -259,7 +272,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(221, 504);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker2.Size = new System.Drawing.Size(245, 22);
             this.dateTimePicker2.TabIndex = 11;
             // 
             // dateTimePicker3
@@ -267,7 +280,7 @@
             this.dateTimePicker3.Location = new System.Drawing.Point(221, 566);
             this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker3.Size = new System.Drawing.Size(245, 22);
             this.dateTimePicker3.TabIndex = 12;
             // 
             // comboBox2
@@ -276,7 +289,7 @@
             this.comboBox2.Location = new System.Drawing.Point(221, 534);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(160, 24);
+            this.comboBox2.Size = new System.Drawing.Size(245, 24);
             this.comboBox2.TabIndex = 13;
             // 
             // searchBtn
@@ -316,12 +329,62 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(343, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(290, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(117, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(31, 40);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(127, 17);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "Renewal Reminder";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(31, 74);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(120, 17);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "Service Reminder";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.Control;
+            this.label11.Location = new System.Drawing.Point(187, 74);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(54, 17);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "label11";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(753, 490);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(265, 127);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Reminders";
             // 
             // Vehicles
             // 
@@ -329,10 +392,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(1191, 690);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.deleteBtn);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.addBtn);
@@ -351,12 +414,15 @@
             this.Controls.Add(this.dataGridViewVehicles);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label12);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Vehicles";
             this.Text = "Vehicles";
             this.Load += new System.EventHandler(this.Vehicles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,5 +452,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

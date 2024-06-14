@@ -20,20 +20,17 @@ namespace driving_school_management_system
             
         }
 
+        //connection string
+        //SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");      
         SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbSystemDSMS.mdf;Integrated Security=True");
-
-        /*private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            dateTimePicker1.Value = monthCalendar1.SelectionStart;
-        }*/
-
         private void addBtn_Click(object sender, EventArgs e)
         {
+            connection.Open();
             try
             {
-                connection.Open();
+                
 
-                // Check if the record with the given ID exists
+                // check if the record with the given ID exists
                 SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Schedule WHERE ID = @ID", connection);
                 checkCmd.Parameters.AddWithValue("@ID", textBox2.Text);
                 int count = (int)checkCmd.ExecuteScalar();
@@ -41,7 +38,7 @@ namespace driving_school_management_system
                 {
                     if (count > 0)
                     {
-                        // If record exists, update it
+                        // if record exists, update it
                         SqlCommand updateCmd = new SqlCommand("UPDATE Schedule SET Details = @Value2 WHERE ID = @ID", connection);
                         updateCmd.Parameters.AddWithValue("@Value2", textBox1.Text);
                         updateCmd.Parameters.AddWithValue("@ID", textBox2.Text);
@@ -50,7 +47,7 @@ namespace driving_school_management_system
                     }
                     else
                     {
-                        // If record doesn't exist, insert a new one
+                        // if record doesn't exist, insert a new one
                         SqlCommand insertCmd = new SqlCommand("INSERT INTO Schedule VALUES (@Value2, @Value3)", connection);
                         insertCmd.Parameters.AddWithValue("@Value2", monthCalendar1.SelectionStart);
                         insertCmd.Parameters.AddWithValue("@Value3", textBox1.Text);
@@ -60,7 +57,7 @@ namespace driving_school_management_system
                 }
                 else
                 {
-                    MessageBox.Show("Enter Details");
+                    MessageBox.Show("Enter Details", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 
 
@@ -70,17 +67,18 @@ namespace driving_school_management_system
             {
                 MessageBox.Show(ex.Message);
             }
+            finally { connection.Close(); }
         }
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             DateTime selectedDate = monthCalendar1.SelectionStart;
 
-            // Fetch events from the database for the selected date
+            // fetch events from the database for the selected date
             List<string> events = GetEventsForDate(selectedDate);
 
-            // Display the events in your form
-            listBox1.Items.Clear();
+            
+            //listBox1.Items.Clear();
             textBox1.Text = "";
             //textBox2.Text = "";
             /*if (events != null )
@@ -140,7 +138,7 @@ namespace driving_school_management_system
 
         private void YourForm_Load(object sender, EventArgs e)
         {
-            // Set the formatted text when the form loads
+            // set the formatted text when the form loads
             textBox1.Multiline = true;
             textBox1.Text = "This is a multiline textbox.\r\n"
                           + "You can add formatted text like this:\r\n"
@@ -152,10 +150,10 @@ namespace driving_school_management_system
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            // Check if the driverId TextBox is not empty
+            // check if the driverId TextBox is not empty
             if (!string.IsNullOrEmpty(textBox2.Text))
             {
-                // Confirm with the user
+                // confirm with the user
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
@@ -172,22 +170,23 @@ namespace driving_school_management_system
                         textBox2.Text = "";
                         //BindData();
                     }
-                    catch (SqlException ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Error deleting record: " + ex.Message);
                     }
                 }
-                // If user clicks No, do nothing
+                // if user clicks No, do nothing
             }
             else
             {
-                MessageBox.Show("No Events to Delete");
+                MessageBox.Show("No Events to Delete", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void Schedule_Load(object sender, EventArgs e)
         {
-            textBox2.Visible = false;
+            textBox2.Visible = false;   //hide record id stored textbox
+            YourForm_Load(sender, e);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

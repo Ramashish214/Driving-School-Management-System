@@ -20,8 +20,9 @@ namespace driving_school_management_system
             InitializeComponent();
         }
 
+        //conection to database
+        //SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\BSc.Electrical Engineering\\SEM 04\\CodeDnM\\C#\\driving_school_management_system\\dbSystemDSMS.mdf\";Integrated Security=True");
         SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbSystemDSMS.mdf;Integrated Security=True");
-
         void BindData()
         {
             SqlCommand cmd = new SqlCommand("select * from Learner", connection);
@@ -35,7 +36,7 @@ namespace driving_school_management_system
             dt.Columns.Remove("Medical Report");
         }
 
-        private byte[] GetPDFFileBytes(string id, string columnName)
+        private byte[] GetPDFFileBytes(string id, string columnName)  //function to get PDF files
         {
             byte[] fileBytes = null;
             try
@@ -60,26 +61,26 @@ namespace driving_school_management_system
             return fileBytes;
         }
 
-        private void ViewPDF(string id, string columnName)
+        private void ViewPDF(string id, string columnName)  //function for view pdf
         {
             byte[] fileBytes = GetPDFFileBytes(id, columnName);
             if (fileBytes != null)
             {
-                // Save the PDF file to a temporary location
+                // save the pdf file to a temporary location
                 string tempFilePath = Path.GetTempFileName() + ".pdf";
                 File.WriteAllBytes(tempFilePath, fileBytes);
 
-                // Check if the file was created successfully
+                // check if the file was created successfully
                 if (File.Exists(tempFilePath))
                 {
-                    // Open the PDF file using the default viewer
+                    // open the pdf file using the default viewer
                     try
                     {
                         System.Diagnostics.Process.Start(tempFilePath);
                     }
-                    catch (Exception ex)
+                    catch (Exception )  //ex deleted
                     {
-                        MessageBox.Show("Error opening PDF file: " + ex.Message);
+                        //MessageBox.Show("Error opening PDF file: " + ex.Message);
                     }
                 }
                 else
@@ -89,7 +90,7 @@ namespace driving_school_management_system
             }
             else
             {
-                MessageBox.Show("No PDF file available for this ID.");
+                MessageBox.Show("No PDF file available for this ID.","L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -102,7 +103,7 @@ namespace driving_school_management_system
                 SqlCommand cmd = new SqlCommand("INSERT INTO Learner (Id, [National ID], [Birth Certificate], [Medical Report]) VALUES (@Id, @FileBytes1, @FileBytes2,@FileBytes3)", connection);
                 cmd.Parameters.AddWithValue("@Id", id);
 
-                // Check if fileBytes is null and add DBNull.Value if it is
+                // check if fileBytes is null 
                 if (nationalId == null)
                 {
                     cmd.Parameters.Add("@FileBytes1", SqlDbType.VarBinary, -1).Value = DBNull.Value;
@@ -112,7 +113,7 @@ namespace driving_school_management_system
                     cmd.Parameters.Add("@FileBytes1", SqlDbType.VarBinary, -1).Value = nationalId;
                 }
 
-                // Check if fileBytes1 is null and add DBNull.Value if it is
+                // check if fileBytes1 is null 
                 if (birthCertificate == null)
                 {
                     cmd.Parameters.Add("@FileBytes2", SqlDbType.VarBinary, -1).Value = DBNull.Value;
@@ -132,7 +133,7 @@ namespace driving_school_management_system
                 }
 
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("PDF file inserted successfully.");
+                MessageBox.Show("PDF file inserted successfully.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -141,7 +142,7 @@ namespace driving_school_management_system
             finally
             {
                 connection.Close();
-                BindData(); // Refresh DataGridView
+                BindData(); 
             }
         }
 
@@ -169,14 +170,7 @@ namespace driving_school_management_system
             buttonColumn2.Name = "pdfFile2";
             buttonColumn2.Text = "View";
             buttonColumn2.UseColumnTextForButtonValue = true;
-            dataGridViewLearners.Columns.Add(buttonColumn2);
-
-            /*DataGridViewButtonColumn buttonColumn3 = new DataGridViewButtonColumn();
-            buttonColumn3.HeaderText = "Written Exam";
-            buttonColumn3.Name = "pdfFile1";
-            buttonColumn3.Text = "View";
-            buttonColumn3.UseColumnTextForButtonValue = true;
-            dataGridViewLearners.Columns.Add(buttonColumn3);*/
+            dataGridViewLearners.Columns.Add(buttonColumn2);           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -207,24 +201,24 @@ namespace driving_school_management_system
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Please enter a value for the Learner Id");
-                return; // Exit the event handler
+                MessageBox.Show("Please enter a value for the Learner Id", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // exit the event handler
             }
             connection.Open();
 
-            // Check if the primary key already exists
+            // check if the primary key already exists
             SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Learner WHERE [Id] = @PrimaryKeyValue", connection);
             checkCmd.Parameters.AddWithValue("@PrimaryKeyValue", textBox1.Text);
 
             int existingCount = (int)checkCmd.ExecuteScalar();
             if (existingCount > 0)
             {
-                MessageBox.Show("Primary key already exists. Please enter a different value.");
+                MessageBox.Show("Learner's ID already exists.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 connection.Close();
-                return; // Exit the event handler
+                return; // exit the event handler
             }
 
-            // Proceed with insertion if the primary key does not exist
+            // proceed with insertion if the primary key does not exist
 
 
             try
@@ -243,70 +237,42 @@ namespace driving_school_management_system
             }
             catch (SqlException ex)
             {
-                // Handle SQL exceptions
+                // handle SQL exceptions
                 MessageBox.Show("An error occurred while inserting data: " + ex.Message);
             }
             finally
             {
                 connection.Close();
-            }
-            //BindData();
-
-            // Check if both ID and PDF file are provided
-            /*if (!string.IsNullOrEmpty(textBox1.Text)) // && !string.IsNullOrEmpty(textBox2.Text))
-            {
-                // Read PDF file bytes
-                byte[] fileBytes = File.ReadAllBytes(textBox3.Text);
-                byte[] fileBytes1 = File.ReadAllBytes(textBox4.Text);
-                byte[] fileBytes2 = File.ReadAllBytes(textBox5.Text);
-                // Insert PDF file bytes into database
-                InsertPDF(textBox1.Text, fileBytes, fileBytes1, fileBytes2);
-                //InsertPDF(textBox1.Text, fileBytes1);
-            }
-            else
-            {
-                //MessageBox.Show("Please provide both ID and PDF file path.");
-                //byte[] fileBytes = File.ReadAllBytes(null);
-                //byte[] fileBytes1 = File.ReadAllBytes(null);
-                InsertPDF(textBox1.Text, null, null, null);
-            }*/
+            }           
         }
 
         private void dataGridViewLearners_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if ((e.ColumnIndex == dataGridViewLearners.Columns["National ID"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile1"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile2"].Index && e.RowIndex >= 0))
             {
-                // Get the ID from the clicked row
+                // get the ID from the clicked row
                 string id = dataGridViewLearners.Rows[e.RowIndex].Cells["Id"].Value.ToString();
 
-                // Determine the column name based on the clicked cell
+                // determine the column name based on the clicked cell
                 string columnName = dataGridViewLearners.Columns[e.ColumnIndex].Name;
 
-                // View the PDF document
+                // view the PDF document
                 ViewPDF(id, columnName);
             }
         }
 
         private void updateIdPDFBtn_Click(object sender, EventArgs e)
         {
-            // Check if both ID and PDF file are provided
+            // check if both ID and PDF file are provided
             if (!string.IsNullOrEmpty(textBox6.Text) && !string.IsNullOrEmpty(textBox3.Text))
             {
                 // Read PDF file bytes
-                byte[] fileBytes = File.ReadAllBytes(textBox3.Text);
-                //byte[] fileBytes1 = File.ReadAllBytes(textBox4.Text);
-                //byte[] fileBytes2 = File.ReadAllBytes(textBox5.Text);
-                // Insert PDF file bytes into database
-                //InsertPDF(textBox1.Text, fileBytes, null, null);
-                //InsertPDF(textBox1.Text, fileBytes1);
+                byte[] fileBytes = File.ReadAllBytes(textBox3.Text);               
                 UpdateRecord(textBox6.Text, fileBytes, "National ID");
             }
             else
             {
-                MessageBox.Show("Please provide both ID and PDF file path.");
-                //byte[] fileBytes = File.ReadAllBytes(null);
-                //byte[] fileBytes1 = File.ReadAllBytes(null);
-                //InsertPDF(textBox1.Text, null, null, null);
+                MessageBox.Show("Please provide both ID and PDF file path.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);               
             }
         }
 
@@ -318,7 +284,7 @@ namespace driving_school_management_system
                 SqlCommand cmd = new SqlCommand($"UPDATE Learner SET [{name}] = @FileBytes WHERE Id = @Id", connection);
                 cmd.Parameters.AddWithValue("@Id", id);
 
-                // Check if fileBytes is null and add DBNull.Value if it is
+                // check if fileBytes is null and add DBNull.Value if it is
                 if (fileBytes == null)
                 {
                     cmd.Parameters.Add("@FileBytes", SqlDbType.VarBinary, -1).Value = DBNull.Value;
@@ -340,16 +306,16 @@ namespace driving_school_management_system
             finally
             {
                 connection.Close();
-                BindData(); // Refresh DataGridView
+                BindData(); // refresh dataGridView
             }
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            // Check if the driverId TextBox is not empty
+            // check if the driverId TextBox is not empty
             if (!string.IsNullOrEmpty(textBox1.Text))
             {
-                // Confirm with the user
+                // confirm with the user
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
@@ -369,11 +335,11 @@ namespace driving_school_management_system
                         MessageBox.Show("Error deleting record: " + ex.Message);
                     }
                 }
-                // If user clicks No, do nothing
+                // if user clicks No, do nothing
             }
             else
             {
-                MessageBox.Show("Please enter an ID to delete.");
+                MessageBox.Show("Please enter an ID to delete.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -383,22 +349,21 @@ namespace driving_school_management_system
 
             try
             {
-                // Check if the record exists
+                // check if the record exists
                 SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Learner WHERE Id = @PrimaryKeyValue", connection);
                 checkCmd.Parameters.AddWithValue("@PrimaryKeyValue", textBox1.Text);
                 int existingCount = (int)checkCmd.ExecuteScalar();
 
                 if (existingCount == 0)
                 {
-                    MessageBox.Show("Record does not exist. Please enter a valid ID.");
+                    MessageBox.Show("Record does not exist. Please enter a valid ID.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     connection.Close();
-                    return; // Exit the event handler
+                    return; // exit the event handler
                 }
 
-                // Proceed with the update
+                // proceed with the update
                 SqlCommand updateCmd = new SqlCommand("UPDATE Learner SET Name = @Value3, Address = @Value4, [Contact No] = @Value5, [License Type] = @Value6, [Written Exam] = @Value7, [Attendance] = @Value8 WHERE Id = @PrimaryKeyValue", connection);
                 updateCmd.Parameters.AddWithValue("@PrimaryKeyValue", textBox1.Text);
-                //updateCmd.Parameters.AddWithValue("@Value2", comboBox1.Text);
                 updateCmd.Parameters.AddWithValue("@Value3", textBox2.Text);
                 updateCmd.Parameters.AddWithValue("@Value4", textBox7.Text);
                 updateCmd.Parameters.AddWithValue("@Value5", textBox8.Text);
@@ -424,16 +389,14 @@ namespace driving_school_management_system
             if (dataGridViewLearners.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dataGridViewLearners.SelectedRows[0];
-
-                // Assuming txtBox1, txtBox2, txtBox3 are your TextBox controls
-                
+              
                 textBox1.Text = selectedRow.Cells["Id"].Value.ToString();
                 textBox2.Text = selectedRow.Cells["Name"].Value.ToString();
                 comboBox1.Text = selectedRow.Cells["License Type"].Value.ToString();
                 textBox7.Text = selectedRow.Cells["Address"].Value.ToString();
                 textBox8.Text = selectedRow.Cells["Contact No"].Value.ToString();
                 comboBox2.Text = selectedRow.Cells["Written Exam"].Value.ToString();
-                //numericUpDown1.Value = int.Parse(selectedRow.Cells["Attendance"].Value.ToString());
+
                 object attendanceCellValue = selectedRow.Cells["Attendance"].Value;
                 if (attendanceCellValue != null)
                 {
@@ -443,13 +406,13 @@ namespace driving_school_management_system
                     }
                     else
                     {
-                        // Handle if the value cannot be parsed to an integer
+                        // handle if the value cannot be parsed to an integer
                         numericUpDown1.Value=0;
                     }
                 }
                 else
                 {
-                    // Handle if the cell value is null
+                    // handle if the cell value is null
                     MessageBox.Show("Attendance value is null.");
                 }
             }
@@ -461,16 +424,16 @@ namespace driving_school_management_system
 
             if (!string.IsNullOrEmpty(searchText))
             {
-                // Loop through each row in the DataGridView
+                // loop through each row in the dataGridView
                 foreach (DataGridViewRow row in dataGridViewLearners.Rows)
                 {
-                    // Check if the "Id" column value matches the search text
+                    // check if the "Id" column value matches the search text
                     if (row.Cells["Id"].Value != null && row.Cells["Id"].Value.ToString() == searchText)
                     {
-                        // Select the row and scroll it into view
+                        // select the row and scroll it into view
                         row.Selected = true;
                         dataGridViewLearners.CurrentCell = row.Cells["Id"];
-                        return; // Exit the function once a match is found
+                        return; // exit the function once a match is found
                     }
                 }
 
@@ -481,19 +444,9 @@ namespace driving_school_management_system
                 MessageBox.Show("Please enter a search value.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+      
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void updateToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            
-            
-        }
-
-        void contentLoad()
+        void contentLoad() // content load depend on control
         {
             label9.Visible = false;
             label4.Visible = false;
@@ -532,11 +485,6 @@ namespace driving_school_management_system
         private void button1_Click_1(object sender, EventArgs e)
         {
             contentLoad();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button4_Click(object sender, EventArgs e)

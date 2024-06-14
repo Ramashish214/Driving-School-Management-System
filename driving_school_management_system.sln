@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "driving_school_management_system", "driving_school_management_system.csproj", "{F7E0F445-7092-4692-9849-5BA51A0579F8}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupFile", "..\SetupFile\SetupFile.vdproj", "{CFD6DAF0-7E57-416E-9254-27BC0C10D797}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomActionClass", "..\CustomActionClass\CustomActionClass.csproj", "{47AB1464-BFEB-46C1-8B64-D8C20CEDD710}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,12 @@ Global
 		{F7E0F445-7092-4692-9849-5BA51A0579F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7E0F445-7092-4692-9849-5BA51A0579F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7E0F445-7092-4692-9849-5BA51A0579F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD6DAF0-7E57-416E-9254-27BC0C10D797}.Debug|Any CPU.ActiveCfg = Debug
+		{CFD6DAF0-7E57-416E-9254-27BC0C10D797}.Release|Any CPU.ActiveCfg = Release
+		{47AB1464-BFEB-46C1-8B64-D8C20CEDD710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47AB1464-BFEB-46C1-8B64-D8C20CEDD710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47AB1464-BFEB-46C1-8B64-D8C20CEDD710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47AB1464-BFEB-46C1-8B64-D8C20CEDD710}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

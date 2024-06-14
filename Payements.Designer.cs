@@ -58,6 +58,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,9 +183,9 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(59, 374);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 17);
+            this.label7.Size = new System.Drawing.Size(89, 17);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Discount";
+            this.label7.Text = "Discount (%)";
             // 
             // label8
             // 
@@ -236,7 +237,7 @@
             this.printBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.printBtn.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.printBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.printBtn.Location = new System.Drawing.Point(186, 439);
+            this.printBtn.Location = new System.Drawing.Point(480, 390);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(88, 41);
             this.printBtn.TabIndex = 18;
@@ -331,7 +332,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(338, -9);
+            this.pictureBox1.Location = new System.Drawing.Point(330, -9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(117, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -339,12 +340,26 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(186, 445);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 41);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Payment Received";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Payements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(1191, 690);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -375,6 +390,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payements";
             this.Text = "Payements";
             this.Load += new System.EventHandler(this.Payements_Load);
@@ -415,5 +431,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

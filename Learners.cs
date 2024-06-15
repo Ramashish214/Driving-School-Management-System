@@ -160,14 +160,14 @@ namespace driving_school_management_system
 
             DataGridViewButtonColumn buttonColumn1 = new DataGridViewButtonColumn();
             buttonColumn1.HeaderText = "Birth Certificate";
-            buttonColumn1.Name = "pdfFile1";
+            buttonColumn1.Name = "Birth Certificate";
             buttonColumn1.Text = "View";
             buttonColumn1.UseColumnTextForButtonValue = true;
             dataGridViewLearners.Columns.Add(buttonColumn1);
 
             DataGridViewButtonColumn buttonColumn2 = new DataGridViewButtonColumn();
             buttonColumn2.HeaderText = "Medical Report";
-            buttonColumn2.Name = "pdfFile2";
+            buttonColumn2.Name = "Medical Report";
             buttonColumn2.Text = "View";
             buttonColumn2.UseColumnTextForButtonValue = true;
             dataGridViewLearners.Columns.Add(buttonColumn2);           
@@ -248,7 +248,7 @@ namespace driving_school_management_system
 
         private void dataGridViewLearners_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ((e.ColumnIndex == dataGridViewLearners.Columns["National ID"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile1"].Index || e.ColumnIndex == dataGridViewLearners.Columns["pdfFile2"].Index && e.RowIndex >= 0))
+            if ((e.ColumnIndex == dataGridViewLearners.Columns["National ID"].Index || e.ColumnIndex == dataGridViewLearners.Columns["Birth Certificate"].Index || e.ColumnIndex == dataGridViewLearners.Columns["Medical Report"].Index && e.RowIndex >= 0))
             {
                 // get the ID from the clicked row
                 string id = dataGridViewLearners.Rows[e.RowIndex].Cells["Id"].Value.ToString();
@@ -521,6 +521,36 @@ namespace driving_school_management_system
             comboBox1.Visible = false;
             comboBox2.Visible = false;
             numericUpDown1.Visible = false;
+        }
+
+        private void updateBCPDFBtn_Click(object sender, EventArgs e)
+        {
+            // check if both ID and PDF file are provided
+            if (!string.IsNullOrEmpty(textBox6.Text) && !string.IsNullOrEmpty(textBox4.Text))
+            {
+                // Read PDF file bytes
+                byte[] fileBytes = File.ReadAllBytes(textBox4.Text);
+                UpdateRecord(textBox6.Text, fileBytes, "Birth Certificate");
+            }
+            else
+            {
+                MessageBox.Show("Please provide both ID and PDF file path.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void updateMRPDFBtn_Click(object sender, EventArgs e)
+        {
+            // check if both ID and PDF file are provided
+            if (!string.IsNullOrEmpty(textBox6.Text) && !string.IsNullOrEmpty(textBox5.Text))
+            {
+                // Read PDF file bytes
+                byte[] fileBytes = File.ReadAllBytes(textBox5.Text);
+                UpdateRecord(textBox6.Text, fileBytes, "Medical Report");
+            }
+            else
+            {
+                MessageBox.Show("Please provide both ID and PDF file path.", "L Tracker Plus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
